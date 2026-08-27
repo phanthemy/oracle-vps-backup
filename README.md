@@ -59,3 +59,5 @@ sudo bash bootstrap.sh
 ```
 
 Sync test from Machine A
+
+Runtime Test
