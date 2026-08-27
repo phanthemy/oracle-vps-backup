@@ -5,7 +5,9 @@
 - Branch: main
 
 ## Last Completed
-- Added "User Prompt Contract" section to AGENTS.md — agent tự thực hiện 10 bước workflow (commit pending)
+- Support required/optional/internal repo types in scripts (commit 3974b63)
+- Added Multi-Machine Bootstrap Toolkit under scripts/ (commit 4840cc6)
+- Added "User Prompt Contract" section to AGENTS.md (commit 45ce16c)
 - Fixed trackingBranch to "main" in .antigravity/project.json (commit c0371d7)
 - Added GET /health endpoint as health.sh returning {"status":"ok","time":"ISO8601"} (commit 202ef9c)
 - Created .antigravity/STATE.md as single source of project state (commit 0d02c18)
@@ -13,8 +15,9 @@
 
 ## Current Status
 - Repository clean, all changes pushed to origin/main
+- Multi-Machine Bootstrap Toolkit active under scripts/ (bootstrap-machine.ps1, sync-all.ps1, doctor.ps1, repos.txt)
 - Infrastructure scripts: bootstrap.sh, backup.sh, restore.sh, doctor.sh, health.sh — all present
-- AGENTS.md now includes: Startup, Working Rules, Finish, User Prompt Contract
+- AGENTS.md includes: Startup, Working Rules, Finish, User Prompt Contract
 - Ansible playbook available at ansible/site.yml
 
 ## Next Tasks
