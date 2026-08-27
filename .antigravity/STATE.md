@@ -5,6 +5,7 @@
 - Branch: main
 
 ## Last Completed
+- Restored Mapgo.vn repository to local workspace via git clone (verified via doctor.ps1: PASS)
 - Support required/optional/internal repo types in scripts (commit 3974b63)
 - Added Multi-Machine Bootstrap Toolkit under scripts/ (commit 4840cc6)
 - Added "User Prompt Contract" section to AGENTS.md (commit 45ce16c)
