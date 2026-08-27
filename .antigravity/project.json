@@ -11,7 +11,7 @@
   },
   "git": {
     "trackingRemote": "origin",
-    "trackingBranch": "master"
+    "trackingBranch": "main"
   },
   "runtime": {
     "vpsRoot": "/home/ubuntu/oracle-vps-backup"

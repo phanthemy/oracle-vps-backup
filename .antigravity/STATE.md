@@ -5,7 +5,8 @@
 - Branch: main
 
 ## Last Completed
-- Added GET /health endpoint as health.sh returning {"status":"ok","time":"ISO8601"} (commit pending)
+- Fixed trackingBranch to "main" in .antigravity/project.json
+- Added GET /health endpoint as health.sh returning {"status":"ok","time":"ISO8601"} (commit 202ef9c)
 - Created .antigravity/STATE.md as single source of project state (commit 0d02c18)
 - Created AGENTS.md with startup, working rules and finish protocol (commit b18e334)
 - Added "Machine B continuation test" to README.md (commit 0d6bc41)
@@ -23,7 +24,7 @@
 
 
 ## Open Issues
-- .antigravity/project.json has trackingBranch set to "master" but actual branch is "main"
+- (none)
 
 ## Decisions
 - Agent workflow follows AGENTS.md: startup checks → selective staging → conventional commit → push origin main
