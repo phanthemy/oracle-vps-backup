@@ -57,3 +57,5 @@ Script `bootstrap.sh` đạt chuẩn Idempotent — có thể chạy nhiều l�
 ```bash
 sudo bash bootstrap.sh
 ```
+
+Sync test from Machine A
