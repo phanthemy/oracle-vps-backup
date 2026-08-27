@@ -1,0 +1,10 @@
+# 16h-19h: cap nhat KQXS moi 3 phut
+# 19h30: luu lich su + thong ke
+# 5h sang: tao du doan moi cho ngay hom nay (chay som de nguoi dung xem luc sang som)
+# Xo so prediction - gio Viet Nam
+*/3 16-19 * * * cd /var/www/xoso-prediction && python3 scraper.py >> /var/www/xoso-prediction/logs/scraper.log 2>&1
+0 */6 * * * cd /var/www/parking-hcm && node scripts/fb_crawler.js >> /tmp/fb_crawler_cron.log 2>&1
+0 5 * * * cd /var/www/xoso-prediction && python3 history_builder.py predict >> /var/www/xoso-prediction/logs/predict.log 2>&1
+0 8 * * * python3 /var/www/portfolio/publish_blog_cron.py >> /var/www/portfolio/publish_blog.log 2>&1
+30 19 * * * cd /var/www/xoso-prediction && python3 history_builder.py today >> /var/www/xoso-prediction/logs/history.log 2>&1
+0 3 * * * /var/www/parking-hcm/scripts/daily_sync.sh

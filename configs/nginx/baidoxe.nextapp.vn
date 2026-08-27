@@ -1,0 +1,18 @@
+# Redirect baidoxe.nextapp.vn & parking.nextapp.vn -> mapgo.vn
+server {
+    listen 443 ssl;
+    server_name baidoxe.nextapp.vn parking.nextapp.vn;
+
+    ssl_certificate /etc/letsencrypt/live/parking.nextapp.vn/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/parking.nextapp.vn/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    return 301 https://mapgo.vn$request_uri;
+}
+
+server {
+    listen 80;
+    server_name baidoxe.nextapp.vn parking.nextapp.vn;
+    return 301 https://mapgo.vn$request_uri;
+}

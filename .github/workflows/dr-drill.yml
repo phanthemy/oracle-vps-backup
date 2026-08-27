@@ -1,0 +1,53 @@
+name: "Disaster Recovery Drill & IaC Verification"
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    # Run drill every Sunday at 00:00 UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  dr-drill:
+    name: "Automated Zero-to-Production VPS Drill"
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+
+    steps:
+      - name: "Checkout IaC Repository"
+        uses: actions/checkout@v4
+
+      - name: "Level 2 Audit: Verify Syntax of All Scripts"
+        run: |
+          bash -n bootstrap.sh
+          bash -n restore.sh
+          bash -n backup.sh
+          bash -n doctor.sh
+          for script in install/*.sh scripts/*.sh database/*.sh; do
+            bash -n "$script"
+          done
+          echo "✅ All bash scripts passed syntax validation."
+
+      - name: "Level 3 Drill: Execute Zero-to-Production Bootstrap (Pass 1)"
+        env:
+          POSTGRES_PASSWORD: ${{ secrets.DR_POSTGRES_PASSWORD || 'ci_drill_password_2026' }}
+        run: |
+          sudo bash bootstrap.sh
+
+      - name: "Level 3 Drill: Verify Idempotency (Pass 2 - Safe Rerun)"
+        env:
+          POSTGRES_PASSWORD: ${{ secrets.DR_POSTGRES_PASSWORD || 'ci_drill_password_2026' }}
+        run: |
+          sudo bash bootstrap.sh
+          echo "✅ Idempotency test passed: Second bootstrap execution completed with 0 errors."
+
+      - name: "Level 4 Drill: Restore Project (MapGo / Parking-HCM)"
+        run: |
+          sudo bash restore.sh parking-hcm
+
+      - name: "Level 4 Verification: Execute Doctor Health Diagnostics"
+        run: |
+          sudo bash doctor.sh

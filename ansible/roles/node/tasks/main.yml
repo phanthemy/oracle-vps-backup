@@ -1,0 +1,30 @@
+---
+- name: "Add NodeSource GPG key"
+  ansible.builtin.get_url:
+    url: https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key
+    dest: /etc/apt/keyrings/nodesource.asc
+    mode: "0644"
+
+- name: "Add NodeSource repository (Node 20.x)"
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/etc/apt/keyrings/nodesource.asc] https://deb.nodesource.com/node_20.x nodistro main"
+    state: present
+    filename: nodesource
+
+- name: "Install Node.js"
+  ansible.builtin.apt:
+    name: nodejs
+    state: present
+    update_cache: true
+
+- name: "Install global npm packages: pm2, pnpm, yarn, tsx"
+  community.general.npm:
+    name: "{{ item }}"
+    global: true
+    state: present
+  loop:
+    - pm2
+    - pnpm
+    - yarn
+    - tsx
+    - typescript

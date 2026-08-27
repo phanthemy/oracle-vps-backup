@@ -1,0 +1,34 @@
+{
+  "name": "chamcong",
+  "displayName": "Chấm Công CTV Platform",
+  "repository": "https://github.com/phanthemy/chamcong.git",
+  "branch": "main",
+  "rootPath": "/var/www/chamcong",
+  "domain": "chamcong.nextapp.vn",
+  "altDomains": [],
+  "nodeVersion": "20",
+  "pm2": {
+    "name": "chamcong-backend",
+    "script": "npm",
+    "args": "start",
+    "cwd": "/var/www/chamcong/server",
+    "port": 3015,
+    "env": {
+      "PORT": "3015",
+      "NODE_ENV": "production"
+    }
+  },
+  "build": {
+    "installCmd": "npm install --production=false",
+    "buildCmd": "npm run build"
+  },
+  "database": {
+    "type": "postgresql",
+    "name": "chamcong_db",
+    "user": "erp"
+  },
+  "healthCheck": {
+    "url": "http://localhost:3015/api/health",
+    "expectedStatus": 200
+  }
+}

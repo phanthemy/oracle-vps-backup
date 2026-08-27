@@ -1,0 +1,35 @@
+{
+  "name": "parking-hcm",
+  "displayName": "MapGo / Parking-HCM Platform",
+  "repository": "https://github.com/phanthemy/parking-hcm.git",
+  "branch": "main",
+  "rootPath": "/var/www/parking-hcm",
+  "domain": "mapgo.vn",
+  "altDomains": ["parking.nextapp.vn"],
+  "nodeVersion": "20",
+  "pm2": {
+    "name": "parking-hcm",
+    "script": "npm",
+    "args": "start",
+    "cwd": "/var/www/parking-hcm",
+    "port": 3003,
+    "env": {
+      "PORT": "3003",
+      "NODE_ENV": "production"
+    }
+  },
+  "build": {
+    "installCmd": "npm install --production=false",
+    "buildCmd": "npm run build"
+  },
+  "database": {
+    "type": "postgresql",
+    "name": "mapgo_spatial",
+    "user": "erp",
+    "extensions": ["postgis", "unaccent", "pg_trgm"]
+  },
+  "healthCheck": {
+    "url": "http://localhost:3003/api/admin/stats",
+    "expectedStatus": 200
+  }
+}

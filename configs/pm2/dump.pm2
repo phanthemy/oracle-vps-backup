@@ -1,0 +1,6115 @@
+[
+  {
+    "name": "happylife-backend",
+    "cwd": "./server",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "8032",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 59497 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/var/www/wasypro/server",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "PORT": 3011,
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "happylife-backend": "{}",
+      "unique_id": "c97c37e7-a411-4f70-9ec0-d05135ca20a7"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/wasypro/server/index.js",
+    "pm_cwd": "/var/www/wasypro/server",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/happylife-backend-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/happylife-backend-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/happylife-backend-0.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "8032",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 59497 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/var/www/wasypro/server",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "PORT": 3011,
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "happylife-backend": "{}",
+    "unique_id": "c97c37e7-a411-4f70-9ec0-d05135ca20a7",
+    "status": "online",
+    "pm_uptime": 1787726686491,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "13.82"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 94.5
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "13.06"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.33"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.28"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "happylife-backend",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1787726410367,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "filter_env": [],
+    "_tree_pids": [
+      3459328
+    ],
+    "exit_code": 0,
+    "watch": false
+  },
+  {
+    "name": "myspa-backend",
+    "cwd": "./server",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "8032",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 59497 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/var/www/myspa/server",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "PORT": 3010,
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "myspa-backend": "{}",
+      "unique_id": "de388846-46f6-45e6-8865-e2e049dc59c1"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/myspa/server/index.js",
+    "pm_cwd": "/var/www/myspa/server",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/myspa-backend-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/myspa-backend-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/myspa-backend-1.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "8032",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 59497 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/var/www/myspa/server",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "PORT": 3010,
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "myspa-backend": "{}",
+    "unique_id": "de388846-46f6-45e6-8865-e2e049dc59c1",
+    "status": "online",
+    "pm_uptime": 1787726686505,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "22.20"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 95.69
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "21.24"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.37"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.34"
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 16
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 266.3999999999996
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "myspa-backend",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1787726404840,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "filter_env": [],
+    "_tree_pids": [
+      3459219
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "nhatro",
+    "cwd": "/var/www/nhatro",
+    "args": [
+      "start",
+      "-p",
+      "3006"
+    ],
+    "log_date_format": "YYYY-MM-DD HH:mm:ss",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "8032",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 59497 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/var/www/myspa",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "NODE_ENV": "production",
+      "PORT": 3006,
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "nhatro": "{}",
+      "unique_id": "7ce7a152-2c70-4c50-b870-f1d89cb59424"
+    },
+    "max_memory_restart": 524288000,
+    "restart_delay": 5000,
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "min_uptime": 10000,
+    "max_restarts": 10,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/nhatro/node_modules/next/dist/bin/next",
+    "pm_cwd": "/var/www/nhatro",
+    "exec_interpreter": "/usr/bin/node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/nhatro-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/nhatro-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/nhatro-2.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "8032",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 59497 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/var/www/myspa",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "NODE_ENV": "production",
+    "PORT": 3006,
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "nhatro": "{}",
+    "unique_id": "7ce7a152-2c70-4c50-b870-f1d89cb59424",
+    "status": "online",
+    "pm_uptime": 1787726686569,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "51.57"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 94.25
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "48.61"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.42"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.37"
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 43
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 353
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "nhatro",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1787726413216,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "16.2.6",
+    "node_version": "20.20.2",
+    "exit_code": 130,
+    "filter_env": [],
+    "_tree_pids": [
+      3459372
+    ]
+  },
+  {
+    "name": "myspa-frontend",
+    "cwd": "./",
+    "args": [
+      "dev",
+      "--host",
+      "--port",
+      "5174"
+    ],
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "8032",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 59497 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "myspa-frontend": "{}",
+      "unique_id": "81f526db-3611-47fb-a57d-cefb69819504"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/myspa/node_modules/vite/bin/vite.js",
+    "pm_cwd": "/var/www/myspa",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/myspa-frontend-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/myspa-frontend-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/myspa-frontend-3.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "8032",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 59497 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "myspa-frontend": "{}",
+    "unique_id": "81f526db-3611-47fb-a57d-cefb69819504",
+    "status": "online",
+    "pm_uptime": 1787726686577,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "29.96"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 95.19
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "28.53"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 122
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.41"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.42"
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 3
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 20.399999999999977
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "myspa-frontend",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1787726401967,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "8.0.4",
+    "node_version": "20.20.2",
+    "filter_env": [],
+    "_tree_pids": [
+      3459172
+    ],
+    "exit_code": 0,
+    "watch": false
+  },
+  {
+    "name": "ecommerce",
+    "cwd": "/var/www/ecommerce",
+    "env": {
+      "PORT": 3012,
+      "NODE_ENV": "production",
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "8032",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 59497 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "unique_id": "b928eaf0-fc7c-45f9-a3cf-c57bd8b9875a"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/ecommerce/server/index.js",
+    "pm_cwd": "/var/www/ecommerce",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/ecommerce-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/ecommerce-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/ecommerce-4.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "8032",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 59497 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "PORT": 3012,
+    "NODE_ENV": "production",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "ecommerce": "{}",
+    "unique_id": "b928eaf0-fc7c-45f9-a3cf-c57bd8b9875a",
+    "status": "online",
+    "pm_uptime": 1787726686648,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "12.04"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 92.32
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "11.12"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.31"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.30"
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 3
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 26
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "ecommerce",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1782790507865,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "script": "server/index.js",
+    "_tree_pids": [
+      269254
+    ],
+    "exit_code": 0,
+    "filter_env": []
+  },
+  {
+    "name": "bdshcm-platform",
+    "cwd": "/var/www/bdshcm",
+    "args": [
+      "start",
+      "-p",
+      "3002"
+    ],
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "8032",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 59497 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "NODE_ENV": "production",
+      "PORT": 3002,
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "bdshcm-platform": "{}",
+      "unique_id": "a04fbb57-c2a3-41a4-8dbb-fc01504dcffb"
+    },
+    "max_memory_restart": 1073741824,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/bdshcm/node_modules/next/dist/bin/next",
+    "pm_cwd": "/var/www/bdshcm",
+    "exec_interpreter": "/usr/bin/node",
+    "exec_mode": "cluster_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/bdshcm-platform-out-19.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/bdshcm-platform-error-19.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/bdshcm-platform-5.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "8032",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 59497 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "NODE_ENV": "production",
+    "PORT": 3002,
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "bdshcm-platform": "{}",
+    "unique_id": "a04fbb57-c2a3-41a4-8dbb-fc01504dcffb",
+    "status": "online",
+    "pm_uptime": 1787726686658,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "51.58"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 94.5
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "48.74"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 1
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.37"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.42"
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 35
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 277
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "bdshcm-platform",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1786953256444,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "_pm2_version": "7.0.3",
+    "version": "16.2.9",
+    "node_version": "20.20.2",
+    "filter_env": [],
+    "merge_logs": true,
+    "_tree_pids": [
+      81281
+    ],
+    "exit_code": 130
+  },
+  {
+    "name": "decorhcm-backend",
+    "cwd": "/var/www/decorhcm",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "8032",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 59497 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "NODE_ENV": "production",
+      "PORT": 3013,
+      "DATABASE_URL": "postgresql://erp:erp_dev_2026@localhost:5432/decorhcm",
+      "FRONTEND_URL": "https://decorhcm.ddns.net",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "decorhcm-backend": "{}",
+      "unique_id": "e7694086-838b-48e9-a0e2-b333e5664f04"
+    },
+    "max_memory_restart": 536870912,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/decorhcm/server/index.js",
+    "pm_cwd": "/var/www/decorhcm",
+    "exec_interpreter": "node",
+    "exec_mode": "cluster_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/decorhcm-backend-out-21.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/decorhcm-backend-error-21.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/decorhcm-backend-6.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "8032",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 59497 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "NODE_ENV": "production",
+    "PORT": 3013,
+    "DATABASE_URL": "postgresql://erp:erp_dev_2026@localhost:5432/decorhcm",
+    "FRONTEND_URL": "https://decorhcm.ddns.net",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "decorhcm-backend": "{}",
+    "unique_id": "e7694086-838b-48e9-a0e2-b333e5664f04",
+    "status": "online",
+    "pm_uptime": 1787726686719,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "17.03"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 94.54
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "16.10"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 1
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.33"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.27"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "decorhcm-backend",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1785208492484,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "_pm2_version": "7.0.3",
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "filter_env": [],
+    "merge_logs": true,
+    "_tree_pids": [
+      81294
+    ],
+    "exit_code": 0
+  },
+  {
+    "0": "P",
+    "1": "O",
+    "2": "R",
+    "3": "T",
+    "4": "=",
+    "5": "3",
+    "6": "0",
+    "7": "1",
+    "8": "5",
+    "name": "chamcong-backend",
+    "filter_env": [],
+    "namespace": "default",
+    "node_args": [
+      "-r",
+      "dotenv/config"
+    ],
+    "env": {
+      "0": "P",
+      "1": "O",
+      "2": "R",
+      "3": "T",
+      "4": "=",
+      "5": "3",
+      "6": "0",
+      "7": "1",
+      "8": "5",
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 55212 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "13928",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 55212 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "chamcong-backend": {},
+      "unique_id": "6cca3b1f-7a86-49a0-940d-2a51d8663949"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "pm_exec_path": "/var/www/chamcong/server/src/index.js",
+    "pm_cwd": "/var/www/chamcong/server",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/chamcong-backend-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/chamcong-backend-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/chamcong-backend-7.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 55212 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "13928",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 55212 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "6cca3b1f-7a86-49a0-940d-2a51d8663949",
+    "status": "online",
+    "pm_uptime": 1787726686777,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "17.78"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 90.8
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "16.14"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.32"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.30"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "chamcong-backend",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1784516866824,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "_tree_pids": [
+      3711700
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "chovision-backend",
+    "filter_env": [],
+    "namespace": "default",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "8032",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 59497 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "chovision-backend": {},
+      "unique_id": "fcc5ad69-d262-48d5-888a-7a02df5578c7"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/var/www/chovision/server/index.js",
+    "pm_cwd": "/var/www/chovision/server",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/chovision-backend-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/chovision-backend-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/chovision-backend-8.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 59497 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "8032",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 59497 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "fcc5ad69-d262-48d5-888a-7a02df5578c7",
+    "status": "online",
+    "pm_uptime": 1787726686821,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "15.38"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 94.99
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "14.61"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.29"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.29"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "chovision-backend",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1783644689177,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "_tree_pids": [
+      778876
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "bachhoaonline-api",
+    "filter_env": [],
+    "namespace": "default",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 60037 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "8041",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 60037 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "bachhoaonline-api": {},
+      "unique_id": "00702e58-3624-4bb7-9f63-ffa0774213ff"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/home/ubuntu/bachhoaonline/index.js",
+    "pm_cwd": "/home/ubuntu/bachhoaonline",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/bachhoaonline-api-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/bachhoaonline-api-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/bachhoaonline-api-9.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 60037 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "8041",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 60037 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "00702e58-3624-4bb7-9f63-ffa0774213ff",
+    "status": "online",
+    "pm_uptime": 1787726686938,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "13.70"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 93.64
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "12.83"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.32"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.34"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "bachhoaonline-api",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1782831155791,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "exit_code": 0,
+    "_tree_pids": [
+      1628026
+    ]
+  },
+  {
+    "name": "hrm-unified",
+    "cwd": "/var/www/hrm-unified/apps/web",
+    "args": [
+      "start"
+    ],
+    "env": {
+      "NODE_ENV": "production",
+      "PORT": 3005,
+      "unique_id": "a484dc7b-9ba4-40ae-b8e3-d9e4b4e8d165"
+    },
+    "max_memory_restart": 838860800,
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "exec_mode": "cluster_mode",
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/hrm-unified/apps/web/node_modules/.bin/next",
+    "pm_cwd": "/var/www/hrm-unified/apps/web",
+    "exec_interpreter": "/usr/bin/node",
+    "pm_out_log_path": "/var/log/pm2/hrm-unified-out.log",
+    "pm_err_log_path": "/var/log/pm2/hrm-unified-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/hrm-unified-10.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 57100 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "TERM": "vt100",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "9900",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 57100 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "SSH_TTY": "/dev/pts/0",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "NODE_ENV": "production",
+    "PORT": 3005,
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "hrm-unified": "{}",
+    "unique_id": "a484dc7b-9ba4-40ae-b8e3-d9e4b4e8d165",
+    "status": "online",
+    "pm_uptime": 1787726686963,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "35.85"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 94.63
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "33.93"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 1
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.35"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.34"
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 233
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 233
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "hrm-unified",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1784607541762,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "_pm2_version": "7.0.3",
+    "version": "0.1.0",
+    "node_version": "20.20.2",
+    "exit_code": 0,
+    "filter_env": [],
+    "_tree_pids": [
+      4159697
+    ],
+    "script": "node_modules/.bin/next",
+    "out_file": "/var/log/pm2/hrm-unified-out.log",
+    "error_file": "/var/log/pm2/hrm-unified-error.log"
+  },
+  {
+    "name": "hrm-unified",
+    "cwd": "/var/www/hrm-unified/apps/web",
+    "args": [
+      "start"
+    ],
+    "env": {
+      "NODE_ENV": "production",
+      "PORT": 3005,
+      "unique_id": "01b7cc20-9fb3-486e-8921-1acbc358e14b"
+    },
+    "max_memory_restart": 838860800,
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "exec_mode": "cluster_mode",
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/hrm-unified/apps/web/node_modules/.bin/next",
+    "pm_cwd": "/var/www/hrm-unified/apps/web",
+    "exec_interpreter": "/usr/bin/node",
+    "pm_out_log_path": "/var/log/pm2/hrm-unified-out.log",
+    "pm_err_log_path": "/var/log/pm2/hrm-unified-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/hrm-unified-11.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 1,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 57100 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "TERM": "vt100",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "9900",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 57100 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "SSH_TTY": "/dev/pts/0",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "NODE_ENV": "production",
+    "PORT": 3005,
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "hrm-unified": "{}",
+    "unique_id": "01b7cc20-9fb3-486e-8921-1acbc358e14b",
+    "status": "online",
+    "pm_uptime": 1787726687045,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "34.38"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 95.42
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "32.80"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 1
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.37"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.37"
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 110
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 213
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "hrm-unified",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1784607541963,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "_pm2_version": "7.0.3",
+    "version": "0.1.0",
+    "node_version": "20.20.2",
+    "exit_code": 0,
+    "filter_env": [],
+    "_tree_pids": [
+      4159709
+    ],
+    "script": "node_modules/.bin/next",
+    "out_file": "/var/log/pm2/hrm-unified-out.log",
+    "error_file": "/var/log/pm2/hrm-unified-error.log"
+  },
+  {
+    "name": "portfolio-admin",
+    "filter_env": [],
+    "namespace": "default",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/portfolio/admin-server",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "115.79.27.211 56880 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "2272",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "115.79.27.211 56880 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "portfolio-admin": {},
+      "unique_id": "44d82b3c-1ee4-4bed-958c-c2019347bb87"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/var/www/portfolio/admin-server/index.js",
+    "pm_cwd": "/var/www/portfolio/admin-server",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/portfolio-admin-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/portfolio-admin-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/portfolio-admin-12.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/portfolio/admin-server",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "115.79.27.211 56880 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "2272",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "115.79.27.211 56880 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "44d82b3c-1ee4-4bed-958c-c2019347bb87",
+    "status": "online",
+    "pm_uptime": 1787726687229,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.25"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.28"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "9.79"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 87.4
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "8.56"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "portfolio-admin",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1783320537300,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2"
+  },
+  {
+    "name": "erp-unified",
+    "filter_env": [],
+    "namespace": "default",
+    "args": [
+      "start"
+    ],
+    "env": {
+      "PORT": "3006",
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/erp-unified/apps/web",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "115.73.211.182 59681 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "2964",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "115.73.211.182 59681 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "erp-unified": {},
+      "unique_id": "ce1b2ed1-1b24-4e17-8f6a-3a2683379295"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/usr/bin/npm",
+    "pm_cwd": "/var/www/erp-unified/apps/web",
+    "exec_interpreter": "/usr/bin/node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/erp-unified-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/erp-unified-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/erp-unified-13.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "PORT": "3006",
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/erp-unified/apps/web",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "115.73.211.182 59681 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "2964",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "115.73.211.182 59681 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "ce1b2ed1-1b24-4e17-8f6a-3a2683379295",
+    "status": "online",
+    "pm_uptime": 1787726687289,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 5
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.29"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.31"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "9.79"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 91.48
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "8.96"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "erp-unified",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1784538922908,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "N/A",
+    "node_version": "20.20.2",
+    "_tree_pids": [
+      3797704,
+      3797703,
+      3797687
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "crm",
+    "cwd": "/var/www/crm",
+    "args": [
+      "start",
+      "-p",
+      "3018"
+    ],
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/crm",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "115.73.211.182 55016 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "27168",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "115.73.211.182 55016 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "NODE_ENV": "production",
+      "PORT": 3018,
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "crm": "{}",
+      "unique_id": "db838ca0-1748-4005-8b5e-10b416cd37a8",
+      "OLDPWD": "/home/ubuntu"
+    },
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "exec_mode": "fork_mode",
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/crm/node_modules/.bin/next",
+    "pm_cwd": "/var/www/crm",
+    "exec_interpreter": "/usr/bin/node",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/crm-out-20.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/crm-error-20.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/crm-14.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/crm",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "115.73.211.182 55016 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "27168",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "115.73.211.182 55016 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "NODE_ENV": "production",
+    "PORT": 3018,
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "crm": "{}",
+    "unique_id": "db838ca0-1748-4005-8b5e-10b416cd37a8",
+    "status": "online",
+    "pm_uptime": 1787726687369,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.30"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.32"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "36.32"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 94.09
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "34.18"
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 10
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 167
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "crm",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1786336814247,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "0.1.0",
+    "node_version": "20.20.2",
+    "filter_env": [],
+    "merge_logs": true,
+    "_tree_pids": [
+      4151026
+    ],
+    "exit_code": 0,
+    "OLDPWD": "/home/ubuntu"
+  },
+  {
+    "name": "dautayshop",
+    "cwd": "/var/www/dautayshop",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/dautayshop",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "115.79.27.211 60776 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "3226",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "115.79.27.211 60776 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "NODE_ENV": "production",
+      "PORT": 4000,
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "dautayshop": "{}",
+      "unique_id": "08a2d5e1-d8bc-404f-8883-de6191ff4be6"
+    },
+    "max_memory_restart": 209715200,
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/dautayshop/server/index.js",
+    "pm_cwd": "/var/www/dautayshop",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/dautayshop-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/dautayshop-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/dautayshop-15.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/dautayshop",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "115.79.27.211 60776 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "3226",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "115.79.27.211 60776 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "NODE_ENV": "production",
+    "PORT": 4000,
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "dautayshop": "{}",
+    "unique_id": "08a2d5e1-d8bc-404f-8883-de6191ff4be6",
+    "status": "online",
+    "pm_uptime": 1787726687462,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.34"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.34"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "23.01"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 93.59
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "21.53"
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 32
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 32
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "dautayshop",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1786960337623,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "filter_env": [],
+    "_tree_pids": [
+      1236457
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "oci-crawler-ngocvy",
+    "cwd": "/home/ubuntu/oci-crawler-ngocvy",
+    "args": [
+      "auto_create_vm.py"
+    ],
+    "log_date_format": "YYYY-MM-DDTHH:mm:ss",
+    "time": true,
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu/oci-crawler-ngocvy",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "115.79.27.211 60889 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "3284",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "115.79.27.211 60889 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "oci-crawler-ngocvy": "{}",
+      "unique_id": "98bfe28e-db96-493f-87f6-23271a2cabbb"
+    },
+    "restart_delay": 5000,
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "max_restarts": 10,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/usr/bin/python3",
+    "pm_cwd": "/home/ubuntu/oci-crawler-ngocvy",
+    "exec_interpreter": "none",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/var/log/pm2/oci-crawler-ngocvy-out.log",
+    "pm_err_log_path": "/var/log/pm2/oci-crawler-ngocvy-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/oci-crawler-ngocvy-23.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu/oci-crawler-ngocvy",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "115.79.27.211 60889 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "3284",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "115.79.27.211 60889 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "oci-crawler-ngocvy": "{}",
+    "unique_id": "f1a4e8cc-2beb-4be9-92c9-413204cb9134",
+    "status": "stopped",
+    "pm_uptime": 1783417812647,
+    "axm_actions": [],
+    "axm_monitor": {},
+    "axm_options": {},
+    "axm_dynamic": {},
+    "created_at": 1783417811731,
+    "restart_time": 1,
+    "unstable_restarts": 0,
+    "version": "N/A",
+    "filter_env": [],
+    "_tree_pids": [
+      536827
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "ve-sinh-tay-2026",
+    "filter_env": [],
+    "namespace": "default",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 57507 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "5723",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 57507 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "ve-sinh-tay-2026": {},
+      "unique_id": "d5eeadb7-1e5a-4236-85d7-3fcb54c4abe0"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/var/www/ve-sinh-tay-2026/server.js",
+    "pm_cwd": "/home/ubuntu",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/ve-sinh-tay-2026-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/ve-sinh-tay-2026-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/ve-sinh-tay-17.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 57507 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "5723",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 57507 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "d5eeadb7-1e5a-4236-85d7-3fcb54c4abe0",
+    "status": "online",
+    "pm_uptime": 1787726687504,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.32"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.33"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "9.79"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 93.71
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "9.18"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "ve-sinh-tay-2026",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1783670496437,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "_tree_pids": [
+      911598
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "erp-unified-v2",
+    "filter_env": [],
+    "namespace": "default",
+    "args": [
+      "-c",
+      "PORT=3033 node /var/www/erp-unified/apps/web/.next/standalone/server.js"
+    ],
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 53602 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "8502",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 53602 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "erp-unified-v2": {},
+      "unique_id": "6ddccb38-3374-4659-937a-27ce5c797883",
+      "OLDPWD": "/home/ubuntu"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/usr/bin/bash",
+    "pm_cwd": "/home/ubuntu",
+    "exec_interpreter": "none",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/erp-unified-v2-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/erp-unified-v2-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/erp-unified-v2-25.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 53602 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "8502",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 53602 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "4ba97769-6d86-4d62-83fe-5ef9475f47ad",
+    "status": "stopped",
+    "pm_uptime": 1783992231985,
+    "axm_actions": [],
+    "axm_monitor": {},
+    "axm_options": {},
+    "axm_dynamic": {},
+    "created_at": 1783992231873,
+    "restart_time": 8,
+    "unstable_restarts": 0,
+    "version": "N/A",
+    "_tree_pids": [
+      1380246
+    ],
+    "exit_code": 0,
+    "OLDPWD": "/home/ubuntu"
+  },
+  {
+    "name": "phuckhangvina",
+    "cwd": "/var/www/phuckhangvina",
+    "args": [
+      "start",
+      "-p",
+      "3025"
+    ],
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/phuckhangvina",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "115.79.27.211 57113 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "9893",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "115.79.27.211 57113 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "NODE_ENV": "production",
+      "PORT": 3025,
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "phuckhangvina": "{}",
+      "unique_id": "24c38697-22ac-47ba-8347-b83fe1b3cb13"
+    },
+    "max_memory_restart": 1073741824,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/phuckhangvina/node_modules/next/dist/bin/next",
+    "pm_cwd": "/var/www/phuckhangvina",
+    "exec_interpreter": "/usr/bin/node",
+    "exec_mode": "cluster_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/phuckhangvina-out-29.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/phuckhangvina-error-29.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/phuckhangvina-19.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/phuckhangvina",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "115.79.27.211 57113 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "9893",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "115.79.27.211 57113 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "NODE_ENV": "production",
+    "PORT": 3025,
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "phuckhangvina": "{}",
+    "unique_id": "24c38697-22ac-47ba-8347-b83fe1b3cb13",
+    "status": "online",
+    "pm_uptime": 1787726687652,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 1
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.35"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.36"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "43.86"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 95.64
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "41.95"
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 43
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 43
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "phuckhangvina",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1786953275491,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "_pm2_version": "7.0.3",
+    "version": "16.2.9",
+    "node_version": "20.20.2",
+    "exit_code": 130,
+    "filter_env": [],
+    "merge_logs": true,
+    "_tree_pids": [
+      81422
+    ]
+  },
+  {
+    "name": "hrm-violation-worker",
+    "cwd": "/var/www/hrm-unified/apps/web",
+    "args": [
+      "tsx",
+      "src/workers/index.ts"
+    ],
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/hrm-unified/apps/web",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 58798 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "14845",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 58798 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "NODE_ENV": "production",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "hrm-violation-worker": "{}",
+      "unique_id": "a8f1e25e-37e4-46de-98f0-048f03e4d12d"
+    },
+    "max_memory_restart": 536870912,
+    "restart_delay": 5000,
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "exec_mode": "fork_mode",
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/usr/bin/npx",
+    "pm_cwd": "/var/www/hrm-unified/apps/web",
+    "exec_interpreter": "/usr/bin/node",
+    "pm_out_log_path": "/var/log/pm2/hrm-worker-out.log",
+    "pm_err_log_path": "/var/log/pm2/hrm-worker-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/hrm-violation-worker-20.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/hrm-unified/apps/web",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 58798 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "14845",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 58798 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "NODE_ENV": "production",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "hrm-violation-worker": "{}",
+    "unique_id": "a8f1e25e-37e4-46de-98f0-048f03e4d12d",
+    "status": "online",
+    "pm_uptime": 1787726687696,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 5
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.30"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.33"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "15.54"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 93.85
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "14.59"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "hrm-violation-worker",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1784605612826,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "N/A",
+    "node_version": "20.20.2",
+    "exit_code": 0,
+    "filter_env": [],
+    "_tree_pids": [
+      4159033,
+      4159019,
+      4159008,
+      4159007,
+      4158996
+    ]
+  },
+  {
+    "name": "phaplyso",
+    "filter_env": [],
+    "namespace": "default",
+    "args": [
+      "start",
+      "-p",
+      "3030"
+    ],
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/phaplyso",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "115.73.211.182 53520 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "15828",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "115.73.211.182 53520 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "phaplyso": {},
+      "unique_id": "dbeeffec-e865-43a9-8ed7-48917954b66f"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/var/www/phaplyso/node_modules/next/dist/bin/next",
+    "pm_cwd": "/var/www/phaplyso",
+    "exec_interpreter": "/usr/bin/node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/phaplyso-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/phaplyso-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/phaplyso-21.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/phaplyso",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "115.73.211.182 53520 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "15828",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "115.73.211.182 53520 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "dbeeffec-e865-43a9-8ed7-48917954b66f",
+    "status": "online",
+    "pm_uptime": 1787726687792,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.37"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.38"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "38.00"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 96.63
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "36.72"
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 41
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 41
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "phaplyso",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1784688887874,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "16.2.10",
+    "node_version": "20.20.2",
+    "_tree_pids": [
+      397962
+    ],
+    "exit_code": 130
+  },
+  {
+    "name": "langhoa-api",
+    "filter_env": [],
+    "namespace": "default",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/langhoa/api",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 65028 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "20185",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 65028 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "langhoa-api": {},
+      "unique_id": "4b6c7086-055f-4325-93fe-0f733c811365"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/var/www/langhoa/api/server.js",
+    "pm_cwd": "/var/www/langhoa/api",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/langhoa-api-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/langhoa-api-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/langhoa-api-22.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/langhoa/api",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 65028 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "20185",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 65028 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "4b6c7086-055f-4325-93fe-0f733c811365",
+    "status": "online",
+    "pm_uptime": 1787726687895,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.31"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.32"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "10.29"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 88.33
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "9.09"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "langhoa-api",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1785732258145,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "_tree_pids": [
+      1197627
+    ],
+    "exit_code": 0
+  },
+  {
+    "0": "P",
+    "1": "O",
+    "2": "R",
+    "3": "T",
+    "4": "=",
+    "5": "3",
+    "6": "0",
+    "7": "5",
+    "8": "5",
+    "name": "kidsafe-backend",
+    "filter_env": [],
+    "namespace": "default",
+    "node_args": [
+      "-r",
+      "dotenv/config"
+    ],
+    "env": {
+      "0": "P",
+      "1": "O",
+      "2": "R",
+      "3": "T",
+      "4": "=",
+      "5": "3",
+      "6": "0",
+      "7": "5",
+      "8": "5",
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/kidsafe/backend",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 54143 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "0",
+      "XDG_SESSION_ID": "20721",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 54143 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "kidsafe-backend": {},
+      "unique_id": "bdc77503-1bcb-4d83-83fc-fa14fbce4c8f"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "pm_exec_path": "/var/www/kidsafe/backend/dist/index.js",
+    "pm_cwd": "/var/www/kidsafe/backend",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/kidsafe-backend-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/kidsafe-backend-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/kidsafe-backend-23.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/kidsafe/backend",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 54143 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "0",
+    "XDG_SESSION_ID": "20721",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 54143 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "bdc77503-1bcb-4d83-83fc-fa14fbce4c8f",
+    "status": "online",
+    "pm_uptime": 1787726688020,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.36"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.30"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "11.73"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 92.94
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "10.90"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "kidsafe-backend",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1785300311345,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "_tree_pids": [
+      3297424
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "dautay-bot",
+    "filter_env": [],
+    "namespace": "default",
+    "exec_interpreter": "python3",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/home/ubuntu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "115.73.211.182 56448 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "21279",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "115.73.211.182 56448 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PYTHONUNBUFFERED": "1",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "dautay-bot": {},
+      "unique_id": "36ee1025-4bca-4805-8a35-9581e6755c9d"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/var/www/dautayshop/shop_bot.py",
+    "pm_cwd": "/home/ubuntu",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/dautay-bot-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/dautay-bot-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/dautay-bot-24.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/home/ubuntu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "115.73.211.182 56448 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "21279",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "115.73.211.182 56448 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PYTHONUNBUFFERED": "1",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "36ee1025-4bca-4805-8a35-9581e6755c9d",
+    "status": "online",
+    "pm_uptime": 1787726688125,
+    "axm_actions": [],
+    "axm_monitor": {},
+    "axm_options": {},
+    "axm_dynamic": {},
+    "created_at": 1785310594853,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "_tree_pids": [
+      3378346
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "chitieu",
+    "filter_env": [],
+    "namespace": "default",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/chitieu",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.172.42.165 60824 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "25996",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.172.42.165 60824 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "chitieu": {},
+      "unique_id": "518625de-5c7a-4aef-b8dc-9069098cde86"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/var/www/chitieu/dist/index.js",
+    "pm_cwd": "/var/www/chitieu",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/chitieu-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/chitieu-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/chitieu-25.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/chitieu",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.172.42.165 60824 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "25996",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.172.42.165 60824 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "518625de-5c7a-4aef-b8dc-9069098cde86",
+    "status": "online",
+    "pm_uptime": 1787726688263,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.30"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.29"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "12.48"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 88.87
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "11.09"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "chitieu",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1787301021601,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "_tree_pids": [
+      1776752
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "parking-hcm",
+    "filter_env": [],
+    "namespace": "default",
+    "args": [
+      "start",
+      "--",
+      "-p",
+      "3003"
+    ],
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/parking-hcm",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 53274 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "26539",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 53274 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "parking-hcm": {},
+      "unique_id": "5977e036-3234-49fe-977f-f0cf0ab81ef2"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/usr/bin/npm",
+    "pm_cwd": "/var/www/parking-hcm",
+    "exec_interpreter": "/usr/bin/node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/parking-hcm-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/parking-hcm-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/parking-hcm-26.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/parking-hcm",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 53274 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "26539",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 53274 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "5977e036-3234-49fe-977f-f0cf0ab81ef2",
+    "status": "online",
+    "pm_uptime": 1787727867180,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "9.54"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 85.24
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "8.13"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 5
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.30"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.32"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "parking-hcm",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1787727867069,
+    "restart_time": 315,
+    "unstable_restarts": 0,
+    "version": "N/A",
+    "node_version": "20.20.2",
+    "_tree_pids": [
+      3478574,
+      3478573,
+      3478561
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "wasypro",
+    "env": {
+      "NODE_ENV": "production",
+      "unique_id": "722a7525-0d96-4807-8e3b-17a5caf3db30"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/wasypro/server.cjs",
+    "pm_cwd": "/var/www/wasypro",
+    "exec_interpreter": "/usr/bin/node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/wasypro-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/wasypro-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/wasypro-27.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/wasypro",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "115.79.27.211 64831 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "31645",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "115.79.27.211 64831 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "NODE_ENV": "production",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "wasypro": "{}",
+    "unique_id": "722a7525-0d96-4807-8e3b-17a5caf3db30",
+    "status": "online",
+    "pm_uptime": 1787726688603,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.29"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.29"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "22.33"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 92.31
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "20.61"
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 3
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 31.349999999999945
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "wasypro",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1787209479316,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "exit_code": 0,
+    "script": "server.cjs",
+    "_tree_pids": [
+      236164
+    ],
+    "filter_env": []
+  },
+  {
+    "name": "wasypro-ctv",
+    "filter_env": [],
+    "namespace": "default",
+    "args": [
+      "dev",
+      "--host",
+      "--port",
+      "5175"
+    ],
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/wasypro-ctv",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 63019 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "32964",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 63019 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "_": "/usr/bin/pm2",
+      "OLDPWD": "/home/ubuntu",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "wasypro-ctv": {},
+      "unique_id": "5db6900b-759d-4a2b-aae6-40cf740336d5"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/var/www/wasypro-ctv/node_modules/vite/bin/vite.js",
+    "pm_cwd": "/var/www/wasypro-ctv",
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/wasypro-ctv-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/wasypro-ctv-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/wasypro-ctv-28.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/wasypro-ctv",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 63019 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "32964",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 63019 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "_": "/usr/bin/pm2",
+    "OLDPWD": "/home/ubuntu",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "5db6900b-759d-4a2b-aae6-40cf740336d5",
+    "status": "online",
+    "pm_uptime": 1787726688658,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 105
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.37"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.34"
+      },
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "17.57"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 94.27
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "16.56"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "wasypro-ctv",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1787128278228,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "8.0.4",
+    "node_version": "20.20.2",
+    "exit_code": 0,
+    "_tree_pids": [
+      2971840
+    ]
+  },
+  {
+    "name": "smartcup",
+    "filter_env": [],
+    "namespace": "default",
+    "args": [
+      "start",
+      "--",
+      "-p",
+      "3075"
+    ],
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/smartcup",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "115.79.27.211 49381 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "39720",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "115.79.27.211 49381 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "smartcup": {},
+      "unique_id": "50cae783-8801-4f9a-839d-5ce382f1662f"
+    },
+    "merge_logs": true,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "node_args": [],
+    "pm_exec_path": "/usr/bin/npm",
+    "pm_cwd": "/var/www/smartcup",
+    "exec_interpreter": "/usr/bin/node",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/smartcup-out.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/smartcup-error.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/smartcup-29.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/smartcup",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "115.79.27.211 49381 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "39720",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "115.79.27.211 49381 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "unique_id": "50cae783-8801-4f9a-839d-5ce382f1662f",
+    "status": "online",
+    "pm_uptime": 1787726689137,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "9.79"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 87.45
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "8.56"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 5
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.35"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.31"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "smartcup",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1787285092573,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "N/A",
+    "node_version": "20.20.2",
+    "_tree_pids": [
+      623206,
+      623205,
+      623194
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "gohub-platform",
+    "cwd": "/var/www/gohub-platform",
+    "args": [
+      "start",
+      "-p",
+      "4001"
+    ],
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/gohub-platform",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "115.73.211.182 57121 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "41945",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "115.73.211.182 57121 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "OLDPWD": "/home/ubuntu",
+      "_": "/usr/bin/pm2",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "gohub-platform": "{}",
+      "NODE_ENV": "production",
+      "PORT": 4001,
+      "unique_id": "53244573-79ee-4e56-8345-5a70121c722c"
+    },
+    "max_memory_restart": 268435456,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "exec_mode": "fork_mode",
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "env_production": {
+      "NODE_ENV": "production",
+      "PORT": 4001
+    },
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/gohub-platform/node_modules/.bin/next",
+    "pm_cwd": "/var/www/gohub-platform",
+    "exec_interpreter": "/usr/bin/node",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/gohub-platform-out-61.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/gohub-platform-error-61.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/gohub-platform-30.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/gohub-platform",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "115.73.211.182 57121 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "41945",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "115.73.211.182 57121 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "OLDPWD": "/home/ubuntu",
+    "_": "/usr/bin/pm2",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "gohub-platform": "{}",
+    "NODE_ENV": "production",
+    "PORT": 4001,
+    "unique_id": "53244573-79ee-4e56-8345-5a70121c722c",
+    "status": "online",
+    "pm_uptime": 1787726689138,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "39.21"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 96.08
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "37.68"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.34"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.37"
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "gohub-platform",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1787540783198,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "0.1.0",
+    "node_version": "20.20.2",
+    "filter_env": [],
+    "merge_logs": true,
+    "_tree_pids": [
+      1910423
+    ],
+    "exit_code": 130
+  },
+  {
+    "name": "parking-manager",
+    "cwd": "/var/www/parking-manager",
+    "args": [
+      "start",
+      "-p",
+      "3040"
+    ],
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/parking-manager",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "113.161.67.189 60837 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "2",
+      "XDG_SESSION_ID": "42259",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "113.161.67.189 60837 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "_": "/usr/bin/pm2",
+      "OLDPWD": "/home/ubuntu",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "parking-manager": "{}",
+      "NODE_ENV": "production",
+      "PORT": "3040",
+      "unique_id": "b35de31f-0bfd-4d54-af55-d667ac2d484c",
+      "DATABASE_URL": "postgresql://erp:erp_dev_2026@localhost:5432/parking_manager_db"
+    },
+    "max_memory_restart": 314572800,
+    "kill_timeout": 8000,
+    "listen_timeout": 12000,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "exec_mode": "fork_mode",
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "env_production": {
+      "NODE_ENV": "production",
+      "PORT": "3040"
+    },
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/parking-manager/node_modules/.bin/next",
+    "pm_cwd": "/var/www/parking-manager",
+    "exec_interpreter": "/usr/bin/node",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/parking-manager-out-66.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/parking-manager-error-66.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/parking-manager-31.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/parking-manager",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "113.161.67.189 60837 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "2",
+    "XDG_SESSION_ID": "42259",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "113.161.67.189 60837 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "_": "/usr/bin/pm2",
+    "OLDPWD": "/home/ubuntu",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "parking-manager": "{}",
+    "NODE_ENV": "production",
+    "PORT": "3040",
+    "unique_id": "b35de31f-0bfd-4d54-af55-d667ac2d484c",
+    "status": "online",
+    "pm_uptime": 1787728058326,
+    "axm_actions": [
+      {
+        "action_name": "km:heapdump",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:cpu:profiling:stop",
+        "action_type": "internal",
+        "arity": 1
+      },
+      {
+        "action_name": "km:heap:sampling:start",
+        "action_type": "internal",
+        "arity": 2
+      },
+      {
+        "action_name": "km:heap:sampling:stop",
+        "action_type": "internal",
+        "arity": 1
+      }
+    ],
+    "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "50.61"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 96.98
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "49.09"
+      },
+      "Active requests": {
+        "historic": true,
+        "type": "internal/libuv/requests",
+        "value": 0
+      },
+      "Active handles": {
+        "historic": true,
+        "type": "internal/libuv/handles",
+        "value": 4
+      },
+      "Event Loop Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p50",
+        "value": "0.43"
+      },
+      "Event Loop Latency p95": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/libuv/latency/p95",
+        "value": "1.41"
+      },
+      "HTTP Mean Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p50",
+        "value": 10.5
+      },
+      "HTTP P95 Latency": {
+        "historic": true,
+        "unit": "ms",
+        "type": "internal/http/builtin/latency/p95",
+        "value": 120
+      },
+      "HTTP": {
+        "historic": true,
+        "unit": "req/min",
+        "type": "internal/http/builtin/reqs",
+        "value": 0
+      }
+    },
+    "axm_options": {
+      "error": true,
+      "heapdump": true,
+      "feature.profiler.heapsnapshot": false,
+      "feature.profiler.heapsampling": true,
+      "feature.profiler.cpu_js": true,
+      "latency": true,
+      "catchExceptions": true,
+      "profiling": true,
+      "metrics": {
+        "v8": true,
+        "network": false,
+        "eventLoop": true,
+        "runtime": true,
+        "http": true
+      },
+      "standalone": false,
+      "tracing": {
+        "enabled": false,
+        "outbound": false
+      },
+      "module_conf": {},
+      "apm": {
+        "type": "node",
+        "version": "8.0.0"
+      },
+      "module_name": "parking-manager",
+      "module_version": "7.0.3"
+    },
+    "axm_dynamic": {},
+    "created_at": 1787728058215,
+    "restart_time": 1,
+    "unstable_restarts": 0,
+    "version": "1.0.0",
+    "node_version": "20.20.2",
+    "filter_env": [],
+    "merge_logs": true,
+    "_tree_pids": [
+      3464370
+    ],
+    "exit_code": 130,
+    "DATABASE_URL": "postgresql://erp:erp_dev_2026@localhost:5432/parking_manager_db"
+  },
+  {
+    "name": "ocr-service",
+    "cwd": "/var/www/parking-manager/ocr-service",
+    "exec_interpreter": "python3",
+    "env": {
+      "SHELL": "/bin/bash",
+      "PWD": "/var/www/parking-manager/ocr-service",
+      "LOGNAME": "ubuntu",
+      "XDG_SESSION_TYPE": "tty",
+      "MOTD_SHOWN": "pam",
+      "HOME": "/home/ubuntu",
+      "LANG": "C.UTF-8",
+      "SSH_CONNECTION": "115.79.27.211 57713 10.0.0.207 22",
+      "XDG_SESSION_CLASS": "user",
+      "USER": "ubuntu",
+      "SHLVL": "1",
+      "XDG_SESSION_ID": "44244",
+      "XDG_RUNTIME_DIR": "/run/user/1001",
+      "SSH_CLIENT": "115.79.27.211 57713 22",
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+      "_": "/usr/bin/pm2",
+      "OLDPWD": "/home/ubuntu",
+      "PM2_USAGE": "CLI",
+      "PM2_JSON_PROCESSING": "true",
+      "FLASK_ENV": "production",
+      "PYTHONUNBUFFERED": "1",
+      "PM2_HOME": "/home/ubuntu/.pm2",
+      "ocr-service": "{}",
+      "unique_id": "39abd8bc-8e10-45f4-9bf6-238d18783f07"
+    },
+    "max_memory_restart": 524288000,
+    "vizion": true,
+    "autostart": true,
+    "autorestart": true,
+    "watch": false,
+    "instance_var": "NODE_APP_INSTANCE",
+    "pmx": true,
+    "automation": true,
+    "treekill": true,
+    "username": "ubuntu",
+    "windowsHide": true,
+    "kill_retry_time": 100,
+    "namespace": "default",
+    "node_args": [],
+    "pm_exec_path": "/var/www/parking-manager/ocr-service/ocr_server.py",
+    "pm_cwd": "/var/www/parking-manager/ocr-service",
+    "exec_mode": "fork_mode",
+    "pm_out_log_path": "/home/ubuntu/.pm2/logs/ocr-service-out-33.log",
+    "pm_err_log_path": "/home/ubuntu/.pm2/logs/ocr-service-error-33.log",
+    "pm_pid_path": "/home/ubuntu/.pm2/pids/ocr-service-33.pid",
+    "km_link": false,
+    "vizion_running": false,
+    "NODE_APP_INSTANCE": 0,
+    "SHELL": "/bin/bash",
+    "PWD": "/var/www/parking-manager/ocr-service",
+    "LOGNAME": "ubuntu",
+    "XDG_SESSION_TYPE": "tty",
+    "MOTD_SHOWN": "pam",
+    "HOME": "/home/ubuntu",
+    "LANG": "C.UTF-8",
+    "SSH_CONNECTION": "115.79.27.211 57713 10.0.0.207 22",
+    "XDG_SESSION_CLASS": "user",
+    "USER": "ubuntu",
+    "SHLVL": "1",
+    "XDG_SESSION_ID": "44244",
+    "XDG_RUNTIME_DIR": "/run/user/1001",
+    "SSH_CLIENT": "115.79.27.211 57713 22",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+    "_": "/usr/bin/pm2",
+    "OLDPWD": "/home/ubuntu",
+    "PM2_USAGE": "CLI",
+    "PM2_JSON_PROCESSING": "true",
+    "FLASK_ENV": "production",
+    "PYTHONUNBUFFERED": "1",
+    "PM2_HOME": "/home/ubuntu/.pm2",
+    "ocr-service": "{}",
+    "unique_id": "39abd8bc-8e10-45f4-9bf6-238d18783f07",
+    "status": "online",
+    "pm_uptime": 1787727453925,
+    "axm_actions": [],
+    "axm_monitor": {},
+    "axm_options": {},
+    "axm_dynamic": {},
+    "created_at": 1787727453925,
+    "restart_time": 0,
+    "unstable_restarts": 0,
+    "version": "1.0.0"
+  }
+]

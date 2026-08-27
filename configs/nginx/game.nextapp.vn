@@ -1,0 +1,51 @@
+server {
+
+    listen 80;
+    server_name game.nextapp.vn;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    # SEO Setup
+    location = /robots.txt {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location = /sitemap.xml {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location ~ ^/google[a-zA-Z0-9]+\.html$ {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+
+    listen 443 ssl;
+    server_name game.nextapp.vn;
+
+    ssl_certificate /etc/letsencrypt/live/game.nextapp.vn/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/game.nextapp.vn/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    root /var/www/gameai.myddns.me;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+        add_header Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0";
+        expires -1;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
+    }
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/html;
+    }
+}

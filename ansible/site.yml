@@ -1,0 +1,38 @@
+---
+- name: "Oracle VPS Zero-to-Production Orchestrator (IaC Playbook)"
+  hosts: oracle_vps
+  become: true
+  gather_facts: true
+
+  roles:
+    - common
+    - firewall
+    - node
+    - postgres
+    - redis
+    - caddy
+
+  post_tasks:
+    - name: "Health Check: Verify PM2 Status"
+      ansible.builtin.command: "su - ubuntu -c 'pm2 status'"
+      register: pm2_out
+      changed_when: false
+
+    - name: "Health Check: PostgreSQL Service"
+      ansible.builtin.systemd:
+        name: postgresql
+        state: started
+
+    - name: "Health Check: Redis Service"
+      ansible.builtin.systemd:
+        name: redis-server
+        state: started
+
+    - name: "Health Check: Caddy Web Server"
+      ansible.builtin.systemd:
+        name: caddy
+        state: started
+
+    - name: "Display PM2 Status"
+      ansible.builtin.debug:
+        var: pm2_out.stdout_lines

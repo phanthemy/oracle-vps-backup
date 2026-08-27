@@ -1,0 +1,66 @@
+---
+- name: "Update apt cache and upgrade packages"
+  ansible.builtin.apt:
+    update_cache: true
+    upgrade: "dist"
+    cache_valid_time: 3600
+
+- name: "Install base essential packages"
+  ansible.builtin.apt:
+    name:
+      - build-essential
+      - curl
+      - wget
+      - git
+      - htop
+      - jq
+      - unzip
+      - ufw
+      - fail2ban
+      - software-properties-common
+      - ca-certificates
+      - gnupg
+    state: present
+
+- name: "Configure 4GB Swap Space"
+  ansible.builtin.command: "fallocate -l 4G /swapfile"
+  args:
+    creates: /swapfile
+
+- name: "Set swap permissions"
+  ansible.builtin.file:
+    path: /swapfile
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: "Format swapfile"
+  ansible.builtin.command: "mkswap /swapfile"
+  when: ansible_swaptotal_mb == 0
+
+- name: "Enable swap in fstab"
+  ansible.posix.mount:
+    name: none
+    src: /swapfile
+    fstype: swap
+    opts: sw
+    passno: 0
+    dump: 0
+    state: present
+
+- name: "Set swappiness = 10"
+  ansible.posix.sysctl:
+    name: vm.swappiness
+    value: "10"
+    state: present
+    reload: true
+
+- name: "Configure Oracle Cloud security limits"
+  ansible.builtin.copy:
+    dest: /etc/security/limits.d/99-oracle-limits.conf
+    content: |
+      * soft nofile 65535
+      * hard nofile 65535
+      * soft nproc 65535
+      * hard nproc 65535
+    mode: "0644"

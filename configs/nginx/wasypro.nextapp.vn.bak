@@ -1,0 +1,104 @@
+server {
+
+    listen 80;
+    server_name wasypro.nextapp.vn app.wasypro.com www.app.wasypro.com;
+    return 301 https://System.Management.Automation.Internal.Host.InternalHost;
+}
+
+server {
+    # SEO Setup
+    location = /robots.txt {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location = /sitemap.xml {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location ~ ^/google[a-zA-Z0-9]+\.html$ {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+
+    listen 443 ssl;
+    server_name wasypro.nextapp.vn;
+
+    ssl_certificate /etc/letsencrypt/live/wasypro.nextapp.vn/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wasypro.nextapp.vn/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    location /.well-known/acme-challenge/ { root /var/www/html; }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:3011;
+        proxy_set_header Host \System.Management.Automation.Internal.Host.InternalHost;
+        proxy_set_header X-Real-IP \;
+        proxy_set_header X-Forwarded-For \;
+        proxy_set_header X-Forwarded-Proto \;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:5005;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade \;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host \System.Management.Automation.Internal.Host.InternalHost;
+        proxy_cache_bypass \;
+        proxy_set_header X-Real-IP \;
+        proxy_set_header X-Forwarded-For \;
+        proxy_set_header X-Forwarded-Proto \;
+    }
+}
+
+server {
+    # SEO Setup
+    location = /robots.txt {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location = /sitemap.xml {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location ~ ^/google[a-zA-Z0-9]+\.html$ {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+
+    listen 443 ssl;
+    server_name app.wasypro.com www.app.wasypro.com;
+
+    ssl_certificate /etc/letsencrypt/live/app.wasypro.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/app.wasypro.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    location /.well-known/acme-challenge/ { root /var/www/html; }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:3011;
+        proxy_set_header Host \System.Management.Automation.Internal.Host.InternalHost;
+        proxy_set_header X-Real-IP \;
+        proxy_set_header X-Forwarded-For \;
+        proxy_set_header X-Forwarded-Proto \;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:5005;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade \;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host \System.Management.Automation.Internal.Host.InternalHost;
+        proxy_cache_bypass \;
+        proxy_set_header X-Real-IP \;
+        proxy_set_header X-Forwarded-For \;
+        proxy_set_header X-Forwarded-Proto \;
+    }
+}

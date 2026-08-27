@@ -1,0 +1,60 @@
+server {
+
+    listen 80;
+    server_name nextapp.vn www.nextapp.vn;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    # SEO Setup
+    location = /robots.txt {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location = /sitemap.xml {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location ~ ^/google[a-zA-Z0-9]+\.html$ {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+
+    listen 443 ssl;
+    server_name nextapp.vn www.nextapp.vn;
+
+    ssl_certificate /etc/letsencrypt/live/nextapp.vn/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/nextapp.vn/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    root /var/www/portfolio;
+    index index.html;
+
+    # Admin API proxy
+    location /admin-api/ {
+        proxy_pass http://127.0.0.1:3099;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Content-Type $content_type;
+    }
+
+    location / {
+        try_files $uri $uri/ =404;
+        add_header Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0";
+        expires -1;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|json)$ {
+        expires 5m;
+        add_header Cache-Control "public, no-transform";
+    }
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/html;
+    }
+}
+

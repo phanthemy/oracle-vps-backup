@@ -1,0 +1,78 @@
+server {
+
+    listen 80;
+    server_name qlsx.nextapp.vn;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    # SEO Setup
+    location = /robots.txt {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location = /sitemap.xml {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location ~ ^/google[a-zA-Z0-9]+\.html$ {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+
+    listen 443 ssl;
+    server_name qlsx.nextapp.vn;
+
+    ssl_certificate /etc/letsencrypt/live/qlsx.nextapp.vn/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/qlsx.nextapp.vn/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    client_max_body_size 20M;
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/html;
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:3013;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 60s;
+    }
+
+    location /uploads/ {
+        alias /var/www/decorhcm/server/uploads/;
+        expires 30d;
+    }
+
+    location ~* /(sw\.js|manifest\.json)$ {
+        root /var/www/decorhcm/dist;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+        add_header Pragma "no-cache";
+        expires 0;
+    }
+
+    location / {
+        root /var/www/decorhcm/dist;
+        index index.html;
+        try_files $uri $uri/ /index.html;
+
+        location = /index.html {
+            add_header Cache-Control "no-cache, no-store, must-revalidate";
+            add_header Pragma "no-cache";
+            expires 0;
+        }
+
+        location ~* \.(?:js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|webmanifest)$ {
+            expires 1y;
+            add_header Cache-Control "public, immutable";
+        }
+    }
+}

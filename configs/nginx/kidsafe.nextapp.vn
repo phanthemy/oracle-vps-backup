@@ -1,0 +1,77 @@
+server {
+    server_name kidsafe.nextapp.vn;
+
+    # SEO Setup
+    location = /robots.txt {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location = /sitemap.xml {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location ~ ^/google[a-zA-Z0-9]+\.html$ {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+
+    # No-cache for downloads and dashboard
+    location ~* \.(apk|exe)$ {
+        root /var/www/kidsafe/frontend;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+        add_header Pragma "no-cache";
+        add_header Expires 0;
+    }
+    location = /dashboard.html {
+        root /var/www/kidsafe/frontend;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    # WebSocket proxy
+    location /ws {
+        proxy_pass http://127.0.0.1:3055;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 86400;
+    }
+
+    location / {
+        root /var/www/kidsafe/frontend;
+        index index.html;
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:3055;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/kidsafe.nextapp.vn/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/kidsafe.nextapp.vn/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+}
+server {
+    if ($host = kidsafe.nextapp.vn) {
+        return 301 https://$host$request_uri;
+    }
+    listen 80;
+    server_name kidsafe.nextapp.vn;
+    return 404;
+}

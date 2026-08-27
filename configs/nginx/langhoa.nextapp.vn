@@ -1,0 +1,59 @@
+server {
+    # SEO Setup
+    location = /robots.txt {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location = /sitemap.xml {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+    location ~ ^/google[a-zA-Z0-9]+\.html$ {
+        root /var/www/portfolio;
+        access_log off;
+        log_not_found off;
+    }
+
+
+    server_name langhoa.nextapp.vn;
+    root /var/www/langhoa;
+    index index.html;
+
+    include /etc/nginx/mime.types;
+    types {
+        application/wasm wasm;
+    }
+
+    # KHÔNG CACHE gì cả - force fresh load
+    add_header Cache-Control "no-store, no-cache, must-revalidate, max-age=0";
+    add_header Pragma "no-cache";
+    etag off;
+    if_modified_since off;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript application/wasm text/xml application/xml text/javascript;
+    gzip_min_length 256;
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/langhoa.nextapp.vn/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/langhoa.nextapp.vn/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    if ($host = langhoa.nextapp.vn) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    listen 80;
+    server_name langhoa.nextapp.vn;
+    return 404; # managed by Certbot
+
+}
