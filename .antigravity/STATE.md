@@ -5,6 +5,8 @@
 - Branch: main
 
 ## Last Completed
+- Added GET /health endpoint as health.sh returning {"status":"ok","time":"ISO8601"} (commit pending)
+- Created .antigravity/STATE.md as single source of project state (commit 0d02c18)
 - Created AGENTS.md with startup, working rules and finish protocol (commit b18e334)
 - Added "Machine B continuation test" to README.md (commit 0d6bc41)
 - Added "Runtime Test" to README.md (commit 7d85b2b)
@@ -12,12 +14,13 @@
 
 ## Current Status
 - Repository clean, all changes pushed to origin/main
-- Infrastructure scripts: bootstrap.sh, backup.sh, restore.sh, doctor.sh — all present
+- Infrastructure scripts: bootstrap.sh, backup.sh, restore.sh, doctor.sh, health.sh — all present
 - Ansible playbook available at ansible/site.yml
 - Project configs in configs/, database dumps in database/, per-project restore scripts in projects/
 
 ## Next Tasks
 - (none queued)
+
 
 ## Open Issues
 - .antigravity/project.json has trackingBranch set to "master" but actual branch is "main"
