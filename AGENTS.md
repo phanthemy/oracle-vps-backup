@@ -27,3 +27,22 @@
   - git ls-remote origin main
 
 Nếu push thất bại thì dừng và báo lỗi.
+
+## User Prompt Contract
+
+Người dùng chỉ mô tả mục tiêu cần đạt.
+
+Agent phải tự:
+
+1. git pull
+2. đọc README.md
+3. đọc AGENTS.md
+4. đọc .antigravity/STATE.md
+5. xác định task
+6. thực hiện
+7. cập nhật STATE.md
+8. commit
+9. push
+10. báo cáo kết quả
+
+Không yêu cầu người dùng nhắc lại các bước trên.

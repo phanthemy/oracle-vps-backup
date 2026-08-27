@@ -5,22 +5,21 @@
 - Branch: main
 
 ## Last Completed
-- Fixed trackingBranch to "main" in .antigravity/project.json
+- Added "User Prompt Contract" section to AGENTS.md — agent tự thực hiện 10 bước workflow (commit pending)
+- Fixed trackingBranch to "main" in .antigravity/project.json (commit c0371d7)
 - Added GET /health endpoint as health.sh returning {"status":"ok","time":"ISO8601"} (commit 202ef9c)
 - Created .antigravity/STATE.md as single source of project state (commit 0d02c18)
 - Created AGENTS.md with startup, working rules and finish protocol (commit b18e334)
-- Added "Machine B continuation test" to README.md (commit 0d6bc41)
-- Added "Runtime Test" to README.md (commit 7d85b2b)
-- Added "Sync test from Machine A" to README.md (commit 3f52d93)
 
 ## Current Status
 - Repository clean, all changes pushed to origin/main
 - Infrastructure scripts: bootstrap.sh, backup.sh, restore.sh, doctor.sh, health.sh — all present
+- AGENTS.md now includes: Startup, Working Rules, Finish, User Prompt Contract
 - Ansible playbook available at ansible/site.yml
-- Project configs in configs/, database dumps in database/, per-project restore scripts in projects/
 
 ## Next Tasks
 - (none queued)
+
 
 
 ## Open Issues
