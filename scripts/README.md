@@ -95,18 +95,22 @@ project-name|git-url|type
 |-------|--------|
 | `project-name` | Tên thư mục sẽ tạo trong workspace |
 | `git-url` | URL git clone (bỏ trống nếu internal) |
-| `type` | `github` hoặc `internal` |
+| `type` | `required`, `optional`, hoặc `internal` |
 
 **Ví dụ:**
 
 ```
-oracle-vps-backup|https://github.com/phanthemy/oracle-vps-backup.git|github
-Mapgo.vn|https://github.com/phanthemy/parking-hcm.git|github
+oracle-vps-backup|https://github.com/phanthemy/oracle-vps-backup.git|required
+Mapgo.vn|https://github.com/phanthemy/parking-hcm.git|required
+parking-manager|https://github.com/phanthemy/parking-manager.git|optional
 CRM-AAU||internal
 ```
 
-- `github` → Script sẽ clone / sync / kiểm tra
-- `internal` → Script sẽ bỏ qua (SKIP)
+| Type | Bootstrap | Sync | Doctor (nếu thiếu folder) |
+|------|-----------|------|---------------------------|
+| `required` | Clone | Fetch + Pull | ❌ FAIL |
+| `optional` | Clone | Fetch + Pull (nếu có) | ⏭️ SKIP |
+| `internal` | SKIP | SKIP | ⏭️ SKIP |
 
 ---
 

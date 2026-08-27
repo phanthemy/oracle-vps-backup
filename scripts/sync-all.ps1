@@ -39,20 +39,28 @@ foreach ($line in $lines) {
     $projectName = $parts[0].Trim()
     $repoType    = $parts[2].Trim().ToLower()
 
-    if ($repoType -ne 'github') {
-        Write-Host "[SKIP] $projectName (type=$repoType)" -ForegroundColor DarkGray
+    if ($repoType -eq 'internal') {
+        Write-Host "[SKIP] $projectName (internal)" -ForegroundColor DarkGray
+        continue
+    }
+
+    if ($repoType -ne 'required' -and $repoType -ne 'optional') {
         continue
     }
 
     $targetDir = Join-Path $WorkspaceDir $projectName
 
     if (-not (Test-Path $targetDir)) {
-        Write-Host "[MISS] $projectName -- folder not found:" $targetDir -ForegroundColor Red
-        $results += [PSCustomObject]@{
-            Project = $projectName
-            Branch  = '-'
-            Commit  = '-'
-            Status  = 'NOT FOUND'
+        if ($repoType -eq 'optional') {
+            Write-Host "[SKIP] $projectName (optional, not cloned)" -ForegroundColor DarkGray
+        } else {
+            Write-Host "[MISS] $projectName -- folder not found:" $targetDir -ForegroundColor Red
+            $results += [PSCustomObject]@{
+                Project = $projectName
+                Branch  = '-'
+                Commit  = '-'
+                Status  = 'NOT FOUND'
+            }
         }
         continue
     }

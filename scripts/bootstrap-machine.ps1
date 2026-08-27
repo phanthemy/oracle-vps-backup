@@ -49,11 +49,11 @@ foreach ($line in $lines) {
     $targetDir = Join-Path $WorkspaceDir $projectName
 
     if ($repoType -eq 'internal') {
-        Write-Host "[SKIP] $projectName (type=internal)" -ForegroundColor DarkGray
+        Write-Host "[SKIP] $projectName (internal)" -ForegroundColor DarkGray
         continue
     }
 
-    if ($repoType -ne 'github') {
+    if ($repoType -ne 'required' -and $repoType -ne 'optional') {
         Write-Host "[SKIP] $projectName (unknown type: $repoType)" -ForegroundColor Yellow
         continue
     }

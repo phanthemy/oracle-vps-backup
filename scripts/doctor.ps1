@@ -78,7 +78,7 @@ foreach ($line in $lines) {
     Write-Host "--- $projectName ---" -ForegroundColor Yellow
 
     if ($repoType -eq 'internal') {
-        Write-Check 'WARN' 'type=internal -- skipped (no local folder expected)'
+        Write-Check 'WARN' 'type=internal -- skipped'
         $summaryRows += [PSCustomObject]@{
             Project  = $projectName
             Exists   = '-'
@@ -92,6 +92,12 @@ foreach ($line in $lines) {
         continue
     }
 
+    if ($repoType -ne 'required' -and $repoType -ne 'optional') {
+        Write-Check 'WARN' "unknown type: $repoType -- skipped"
+        Write-Host ''
+        continue
+    }
+
     $targetDir = Join-Path $WorkspaceDir $projectName
 
     # Exists?
@@ -99,15 +105,28 @@ foreach ($line in $lines) {
     if ($exists) {
         Write-Check 'PASS' "Folder exists: $targetDir"
     } else {
-        Write-Check 'FAIL' "Folder NOT found: $targetDir"
-        $summaryRows += [PSCustomObject]@{
-            Project  = $projectName
-            Exists   = 'NO'
-            Origin   = '-'
-            Branch   = '-'
-            Clean    = '-'
-            Synced   = '-'
-            Result   = 'FAIL'
+        if ($repoType -eq 'optional') {
+            Write-Check 'PASS' 'Not cloned (optional)'
+            $summaryRows += [PSCustomObject]@{
+                Project  = $projectName
+                Exists   = 'NO'
+                Origin   = '-'
+                Branch   = '-'
+                Clean    = '-'
+                Synced   = '-'
+                Result   = 'SKIP'
+            }
+        } else {
+            Write-Check 'FAIL' "Folder NOT found: $targetDir"
+            $summaryRows += [PSCustomObject]@{
+                Project  = $projectName
+                Exists   = 'NO'
+                Origin   = '-'
+                Branch   = '-'
+                Clean    = '-'
+                Synced   = '-'
+                Result   = 'FAIL'
+            }
         }
         Write-Host ''
         continue
