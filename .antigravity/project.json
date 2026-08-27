@@ -1,0 +1,29 @@
+{
+  "$schema": "https://antigravity.dev/schemas/project-manifest.v1.json",
+  "name": "oracle-vps-backup",
+  "displayName": "Oracle VPS Infrastructure as Code & Disaster Recovery Suite",
+  "type": "iac",
+  "stack": {
+    "framework": "bash-iac-ansible",
+    "runtime": "bash-python3",
+    "targetOs": "ubuntu-22.04-lts",
+    "automation": "ansible-playbook"
+  },
+  "git": {
+    "trackingRemote": "origin",
+    "trackingBranch": "master"
+  },
+  "runtime": {
+    "vpsRoot": "/home/ubuntu/oracle-vps-backup"
+  },
+  "commands": {
+    "bootstrap": "sudo bash bootstrap.sh",
+    "backup": "sudo bash backup.sh",
+    "doctor": "sudo bash doctor.sh",
+    "ansible": "ansible-playbook -i ansible/inventory.ini ansible/site.yml"
+  },
+  "healthCheck": {
+    "command": "./doctor.sh",
+    "expectedStatus": 0
+  }
+}
