@@ -1,4 +1,6 @@
 oracle-vps-backup|https://github.com/phanthemy/oracle-vps-backup.git|required
+wasypro|https://github.com/phanthemy/wasypro.git|required
 Mapgo.vn|https://github.com/phanthemy/parking-hcm.git|required
 parking-manager|https://github.com/phanthemy/parking-manager.git|optional
 CRM-AAU||internal
+
