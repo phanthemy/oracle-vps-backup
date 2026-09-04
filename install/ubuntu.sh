@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# INSTALL: UBUNTU SYSTEM BASE & ESSENTIALS
-# Target OS: Ubuntu 22.04 LTS (Jammy) ARM64 / x86_64
+# INSTALL: SYSTEM BASE PACKAGES & ESSENTIAL BUILD TOOLS
+# Target OS: Ubuntu 22.04 / 24.04 LTS (Jammy / Noble) ARM64 / x86_64
 # Idempotent: Yes
 # ==============================================================================
 
-set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "==> [1/8] Updating Ubuntu package lists..."
+# Source shared helpers
+# shellcheck source=/dev/null
+source "${SCRIPT_DIR}/../lib/common.sh"
+
+log_step "Updating OS package lists..."
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -y
 apt-get upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 
-echo "==> [2/8] Installing core system packages & build tools..."
+log_step "Installing core system packages & build tools..."
 apt-get install -y \
   build-essential \
   ca-certificates \
@@ -34,4 +38,4 @@ apt-get install -y \
   dnsutils \
   procps
 
-echo "==> [3/8] Base system packages installed successfully!"
+log_success "Base system packages installed successfully!"

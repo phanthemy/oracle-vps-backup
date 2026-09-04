@@ -8,7 +8,7 @@
 
 | Secret / Khóa | Mô tả | Nơi lưu trữ an toàn | Cách khôi phục khi tạo VPS mới |
 |---|---|---|---|
-| **SSH Key Pair** | Truy cập VPS user `ubuntu` | 1Password / Vault an toàn của Admin | Thêm public key vào `~/.ssh/authorized_keys` |
+| **SSH Key Pair** | Truy cập VPS (App User / Root) | 1Password / Vault an toàn của Admin | Thêm public key vào `~/.ssh/authorized_keys` |
 | **PostgreSQL Master** | Role `erp` / `postgres` | Password Vault (`erp_dev_2026`) | Tự động tạo bởi `install/postgres.sh` |
 | **Telegram Bot Token** | `@linhcuatoi_bot` API Token | Bitwarden / Environment Vault | Khai báo vào `configs/telegram/.env` |
 | **Cloudflare API Key** | Quản trị DNS `mapgo.vn`, `nextapp.vn` | Cloudflare Dashboard Admin | Cấu hình SSL / DNS A-record |

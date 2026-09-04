@@ -1,31 +1,37 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# SCRIPT: RESTORE CADDYFILE CONFIGURATION
+# SCRIPT: RESTORE CADDYFILE CONFIGURATION (PORTABLE)
+# Target: Portable across Oracle Cloud, VMware, Hetzner, Vultr, DigitalOcean
 # Idempotent: Yes
 # ==============================================================================
 
-set -euo pipefail
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Source shared helpers
+# shellcheck source=/dev/null
+source "${SCRIPT_DIR}/../lib/common.sh"
+
 CADDY_CONFIG="${SCRIPT_DIR}/../configs/caddy/Caddyfile"
 
-echo "==> Restoring Caddyfile configuration..."
+log_step "Restoring Caddyfile configuration..."
 
 if [ -f "$CADDY_CONFIG" ]; then
     mkdir -p /etc/caddy
     cp "$CADDY_CONFIG" /etc/caddy/Caddyfile
     
-    # Also support /home/hung/caddy/conf/Caddyfile if dockerized
-    mkdir -p /home/hung/caddy/conf
-    cp "$CADDY_CONFIG" /home/hung/caddy/conf/Caddyfile
-    chown -R ubuntu:ubuntu /home/hung/caddy || true
+    # Also support user-level containerized Caddy if directory exists
+    if [ -d "${APP_HOME}/caddy" ]; then
+        mkdir -p "${APP_HOME}/caddy/conf"
+        cp "$CADDY_CONFIG" "${APP_HOME}/caddy/conf/Caddyfile"
+        chown -R "${APP_USER}:${APP_USER}" "${APP_HOME}/caddy" || true
+    fi
 
     # Validate and reload Caddy if running
     if systemctl is-active --quiet caddy; then
         caddy validate --config /etc/caddy/Caddyfile
         systemctl reload caddy
-        echo "==> Caddy service reloaded successfully."
+        log_success "Caddy service reloaded successfully."
     fi
 else
-    echo "==> Warning: No Caddyfile found at $CADDY_CONFIG"
+    log_warn "No Caddyfile found at $CADDY_CONFIG"
 fi

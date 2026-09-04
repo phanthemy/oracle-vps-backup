@@ -14,7 +14,7 @@
     "trackingBranch": "main"
   },
   "runtime": {
-    "vpsRoot": "/home/ubuntu/oracle-vps-backup"
+    "vpsRoot": "/var/www/oracle-vps-backup"
   },
   "commands": {
     "bootstrap": "sudo bash bootstrap.sh",

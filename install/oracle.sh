@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# INSTALL: ORACLE CLOUD LINUX KERNEL & LIMITS TUNING
+# INSTALL: KERNEL & SYSTEM HIGH-CONCURRENCY LIMITS TUNING
+# Target: Portable across Oracle Cloud, VMware, Hetzner, Vultr, DigitalOcean
 # Idempotent: Yes
 # ==============================================================================
 
-set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "==> Applying Oracle Cloud high-concurrency limits..."
+# Source shared helpers
+# shellcheck source=/dev/null
+source "${SCRIPT_DIR}/../lib/common.sh"
 
-cat << 'EOF' > /etc/security/limits.d/99-oracle-limits.conf
+log_step "Applying high-concurrency system limits & network tuning..."
+
+cat << 'EOF' > /etc/security/limits.d/99-vps-limits.conf
 * soft nofile 65535
 * hard nofile 65535
 * soft nproc 65535
@@ -28,4 +33,4 @@ EOF
 
 sysctl --system || true
 
-echo "==> Oracle Linux kernel tuning applied successfully!"
+log_success "High-concurrency system tuning applied successfully!"

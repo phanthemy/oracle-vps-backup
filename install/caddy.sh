@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# INSTALL: CADDY WEB SERVER (AUTOMATIC TLS & REVERSE PROXY)
+# INSTALL: CADDY WEB SERVER (AUTOMATIC TLS & REVERSE PROXY - PORTABLE)
 # Idempotent: Yes
 # ==============================================================================
 
-set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "==> Installing official Caddy web server..."
+# Source shared helpers
+# shellcheck source=/dev/null
+source "${SCRIPT_DIR}/../lib/common.sh"
+
+log_step "Installing official Caddy web server..."
 
 apt-get install -y debian-keyring debian-archive-keyring apt-transport-https curl
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg || true
@@ -18,4 +22,4 @@ apt-get install -y caddy
 systemctl enable caddy
 systemctl start caddy
 
-echo "==> Caddy Server installed successfully! Version: $(caddy version)"
+log_success "Caddy Server installed successfully! Version: $(caddy version)"

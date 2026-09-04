@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 # ==============================================================================
 # DISASTER RECOVERY: RESTORE SPECIFIC PROJECT FROM REGISTRY
+# Target: Portable across Oracle Cloud, VMware, Hetzner, Vultr, DigitalOcean
 # Usage: bash restore.sh <project_name>
 # Example: bash restore.sh parking-hcm
 # ==============================================================================
 
-set -euo pipefail
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Source shared helpers
+# shellcheck source=/dev/null
+source "${SCRIPT_DIR}/lib/common.sh"
+
 PROJECT_NAME="${1:-}"
 
 if [ -z "$PROJECT_NAME" ]; then
-    echo "❌ Usage: $0 <project_name>"
+    log_error "Usage: $0 <project_name>"
     echo "Available projects in registry:"
     ls -1 "${SCRIPT_DIR}/projects" | sed 's/\.json$//'
     exit 1
@@ -20,12 +24,12 @@ fi
 REGISTRY_FILE="${SCRIPT_DIR}/projects/${PROJECT_NAME}.json"
 
 if [ ! -f "$REGISTRY_FILE" ]; then
-    echo "❌ Error: Project registry '$REGISTRY_FILE' not found!"
+    log_error "Project registry '$REGISTRY_FILE' not found!"
     exit 1
 fi
 
 echo "=================================================================="
-echo "🚀 RESTORING PROJECT: $PROJECT_NAME"
+echo "🚀 RESTORING PROJECT: $PROJECT_NAME (Target User: $APP_USER)"
 echo "=================================================================="
 
 REPO=$(jq -r '.repository' "$REGISTRY_FILE")
@@ -40,17 +44,17 @@ HEALTH_URL=$(jq -r '.healthCheck.url // "http://localhost:'"$PORT"'"' "$REGISTRY
 DB_NAME=$(jq -r '.database.name // ""' "$REGISTRY_FILE")
 
 # 1. Sync git source safely (check .git directory & remote origin)
-echo "==> [1/6] Syncing source code from $REPO (branch: $BRANCH)..."
+log_step "[1/6] Syncing source code from $REPO (branch: $BRANCH)..."
 if [ -d "$ROOT_PATH/.git" ]; then
     cd "$ROOT_PATH"
     CURRENT_ORIGIN=$(git config --get remote.origin.url || echo "")
     if [ "$CURRENT_ORIGIN" = "$REPO" ]; then
-        echo "==> Repository origin matches. Fetching and checking out $BRANCH..."
+        log_info "Repository origin matches. Fetching and checking out $BRANCH..."
         git fetch origin
         git checkout "$BRANCH"
         git pull origin "$BRANCH"
     else
-        echo "⚠️ Warning: Directory exists but origin mismatch ($CURRENT_ORIGIN != $REPO). Re-cloning..."
+        log_warn "Directory exists but origin mismatch ($CURRENT_ORIGIN != $REPO). Re-cloning..."
         BACKUP_OLD="${ROOT_PATH}_backup_$(date +%Y%m%d_%H%M%S)"
         mv "$ROOT_PATH" "$BACKUP_OLD"
         git clone -b "$BRANCH" "$REPO" "$ROOT_PATH"
@@ -60,11 +64,11 @@ else
     git clone -b "$BRANCH" "$REPO" "$ROOT_PATH"
 fi
 
-chown -R ubuntu:ubuntu "$ROOT_PATH"
+chown -R "${APP_USER}:${APP_USER}" "$ROOT_PATH"
 
 # 2. Setup Database if defined
 if [ -n "$DB_NAME" ]; then
-    echo "==> [2/6] Ensuring PostgreSQL Database '$DB_NAME' exists..."
+    log_step "[2/6] Ensuring PostgreSQL Database '$DB_NAME' exists..."
     sudo -u postgres psql -c "
     DO \$\$
     BEGIN
@@ -82,27 +86,27 @@ if [ -n "$DB_NAME" ]; then
 fi
 
 # 3. Install dependencies
-echo "==> [3/6] Installing dependencies in $CWD_PATH..."
+log_step "[3/6] Installing dependencies in $CWD_PATH..."
 cd "$CWD_PATH"
-su - ubuntu -c "cd '$CWD_PATH' && $INSTALL_CMD"
+run_as_app_user "cd '$CWD_PATH' && $INSTALL_CMD"
 
 # 4. Build application
-echo "==> [4/6] Building application ($BUILD_CMD)..."
-su - ubuntu -c "cd '$CWD_PATH' && $BUILD_CMD"
+log_step "[4/6] Building application ($BUILD_CMD)..."
+run_as_app_user "cd '$CWD_PATH' && $BUILD_CMD"
 
 # 5. Start / Restart PM2 (Idempotent check via pm2 describe)
-echo "==> [5/6] Managing PM2 process '$PM2_NAME' on port $PORT..."
-if su - ubuntu -c "pm2 describe '$PM2_NAME' >/dev/null 2>&1"; then
-    echo "==> Process '$PM2_NAME' already registered in PM2. Restarting with updated env..."
-    su - ubuntu -c "cd '$CWD_PATH' && PORT=$PORT pm2 restart '$PM2_NAME' --update-env"
+log_step "[5/6] Managing PM2 process '$PM2_NAME' on port $PORT..."
+if run_as_app_user "pm2 describe '$PM2_NAME' >/dev/null 2>&1"; then
+    log_info "Process '$PM2_NAME' already registered in PM2. Restarting with updated env..."
+    run_as_app_user "cd '$CWD_PATH' && PORT=$PORT pm2 restart '$PM2_NAME' --update-env"
 else
-    echo "==> Registering new PM2 process '$PM2_NAME'..."
-    su - ubuntu -c "cd '$CWD_PATH' && PORT=$PORT pm2 start npm --name '$PM2_NAME' -- start"
+    log_info "Registering new PM2 process '$PM2_NAME'..."
+    run_as_app_user "cd '$CWD_PATH' && PORT=$PORT pm2 start npm --name '$PM2_NAME' -- start"
 fi
-su - ubuntu -c "pm2 save"
+run_as_app_user "pm2 save"
 
 # 6. Automated Health Check Verification with Retry Loop (30 retries x 2s = 60s max wait)
-echo "==> [6/6] Running Automated Health Check on $HEALTH_URL (Retrying up to 30 times)..."
+log_step "[6/6] Running Automated Health Check on $HEALTH_URL (Retrying up to 30 times)..."
 
 MAX_RETRIES=30
 RETRY_DELAY=2
@@ -112,7 +116,7 @@ for ((i=1; i<=MAX_RETRIES; i++)); do
     HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$HEALTH_URL" 2>/dev/null || echo "000")
     if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 400 ]; then
         echo "=================================================================="
-        echo "✅ HEALTH CHECK PASSED! Project '$PROJECT_NAME' is UP (HTTP $HTTP_STATUS) at attempt $i."
+        log_success "HEALTH CHECK PASSED! Project '$PROJECT_NAME' is UP (HTTP $HTTP_STATUS) at attempt $i."
         echo "=================================================================="
         SUCCESS=true
         break
@@ -124,8 +128,8 @@ done
 
 if [ "$SUCCESS" = false ]; then
     echo "=================================================================="
-    echo "❌ HEALTH CHECK TIMEOUT FOR '$PROJECT_NAME' (HTTP $HTTP_STATUS on $HEALTH_URL)"
+    log_error "HEALTH CHECK TIMEOUT FOR '$PROJECT_NAME' (HTTP $HTTP_STATUS on $HEALTH_URL)"
     echo "=================================================================="
-    su - ubuntu -c "pm2 logs '$PM2_NAME' --lines 30 --nostream"
+    run_as_app_user "pm2 logs '$PM2_NAME' --lines 30 --nostream"
     exit 1
 fi

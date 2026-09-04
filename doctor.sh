@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# ORACLE VPS DOCTOR: COMPREHENSIVE PRODUCTION HEALTH & DIAGNOSTIC SUITE
+# VPS DOCTOR: COMPREHENSIVE PRODUCTION HEALTH & DIAGNOSTIC SUITE
+# Target: Portable across Oracle Cloud, VMware, Hetzner, Vultr, DigitalOcean
 # Checks Swap, RAM, Disk, Limits, Services, Ports, PM2, DB, Redis, Endpoints
 # Output: Detailed audit report + PASS/FAIL verdict
 # ==============================================================================
@@ -8,6 +9,10 @@
 set -u
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Source shared helpers
+# shellcheck source=/dev/null
+source "${SCRIPT_DIR}/lib/common.sh"
 
 PASSED_CHECKS=0
 FAILED_CHECKS=0
@@ -28,33 +33,33 @@ check_result() {
 }
 
 echo "=================================================================="
-echo "🩺 ORACLE VPS SYSTEM DOCTOR & PRODUCTION DIAGNOSTICS"
+echo "🩺 VPS SYSTEM DOCTOR & PRODUCTION DIAGNOSTICS"
 echo "Timestamp: $(date '+%Y-%m-%d %H:%M:%S %Z')"
-echo "Host: $(hostname) ($(uname -m))"
+echo "Host: $(hostname) ($(uname -m)) | Target User: ${APP_USER}"
 echo "=================================================================="
 
 # 1. Swap Memory
 SWAP_TOTAL_MB=$(free -m | awk '/Swap:/ {print $2}')
-if [ "$SWAP_TOTAL_MB" -ge 3500 ]; then
+if [ -n "$SWAP_TOTAL_MB" ] && [ "$SWAP_TOTAL_MB" -ge 3500 ]; then
     check_result "Swap Memory" "PASS" "${SWAP_TOTAL_MB} MB configured"
 else
-    check_result "Swap Memory" "FAIL" "Only ${SWAP_TOTAL_MB} MB (Expected ≥ 4096 MB)"
+    check_result "Swap Memory" "FAIL" "Only ${SWAP_TOTAL_MB:-0} MB (Expected ≥ 4096 MB)"
 fi
 
 # 2. RAM Available
 MEM_AVAIL_MB=$(free -m | awk '/Mem:/ {print $7}')
-if [ "$MEM_AVAIL_MB" -ge 400 ]; then
+if [ -n "$MEM_AVAIL_MB" ] && [ "$MEM_AVAIL_MB" -ge 400 ]; then
     check_result "RAM Available" "PASS" "${MEM_AVAIL_MB} MB available"
 else
-    check_result "RAM Available" "FAIL" "Low memory: ${MEM_AVAIL_MB} MB available"
+    check_result "RAM Available" "FAIL" "Low memory: ${MEM_AVAIL_MB:-0} MB available"
 fi
 
 # 3. Disk Space Usage
 DISK_USAGE_PCT=$(df -h / | awk 'NR==2 {print $5}' | tr -d '%')
-if [ "$DISK_USAGE_PCT" -lt 85 ]; then
+if [ -n "$DISK_USAGE_PCT" ] && [ "$DISK_USAGE_PCT" -lt 85 ]; then
     check_result "Root Disk Space" "PASS" "${DISK_USAGE_PCT}% used"
 else
-    check_result "Root Disk Space" "FAIL" "High disk usage: ${DISK_USAGE_PCT}% used"
+    check_result "Root Disk Space" "FAIL" "High disk usage: ${DISK_USAGE_PCT:-100}% used"
 fi
 
 # 4. System Security Limits (nofile)
@@ -66,7 +71,7 @@ else
 fi
 
 # 5. UFW Firewall
-if ufw status | grep -q "Status: active"; then
+if command -v ufw >/dev/null 2>&1 && ufw status | grep -q "Status: active"; then
     check_result "UFW Firewall" "PASS" "Active & filtering traffic"
 else
     check_result "UFW Firewall" "FAIL" "UFW is inactive or disabled"
@@ -106,12 +111,13 @@ fi
 
 # 9. PM2 Process Manager
 if command -v pm2 >/dev/null 2>&1; then
-    ONLINE_COUNT=$(su - ubuntu -c "pm2 jlist" 2>/dev/null | jq '[.[] | select(.pm2_env.status == "online")] | length' 2>/dev/null || echo "0")
-    TOTAL_PM2=$(su - ubuntu -c "pm2 jlist" 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
+    PM2_JSON=$(run_as_app_user "pm2 jlist" 2>/dev/null || echo "[]")
+    ONLINE_COUNT=$(echo "$PM2_JSON" | jq '[.[] | select(.pm2_env.status == "online")] | length' 2>/dev/null || echo "0")
+    TOTAL_PM2=$(echo "$PM2_JSON" | jq 'length' 2>/dev/null || echo "0")
     if [ "$ONLINE_COUNT" -gt 0 ]; then
-        check_result "PM2 Processes" "PASS" "${ONLINE_COUNT}/${TOTAL_PM2} apps online"
+        check_result "PM2 Processes" "PASS" "${ONLINE_COUNT}/${TOTAL_PM2} apps online (User: ${APP_USER})"
     else
-        check_result "PM2 Processes" "FAIL" "0 apps running in PM2"
+        check_result "PM2 Processes" "FAIL" "0 apps running in PM2 (User: ${APP_USER})"
     fi
 else
     check_result "PM2 Processes" "FAIL" "PM2 command not found"

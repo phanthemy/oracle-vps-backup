@@ -14,7 +14,8 @@
 
   post_tasks:
     - name: "Health Check: Verify PM2 Status"
-      ansible.builtin.command: "su - ubuntu -c 'pm2 status'"
+      ansible.builtin.command: "pm2 status"
+      become_user: "{{ app_user | default(ansible_user) }}"
       register: pm2_out
       changed_when: false
 
