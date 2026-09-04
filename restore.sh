@@ -13,7 +13,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/lib/common.sh"
 
 # Load secrets from all standard locations if present
-for sec in "${SCRIPT_DIR}/secrets.env" "${SCRIPT_DIR}/../secrets.env" /etc/secrets.env "${APP_HOME}/.secrets.env"; do
+for sec in "${SCRIPT_DIR}/secrets.env" "${SCRIPT_DIR}/../secrets.env" /etc/secrets.env "${APP_HOME}/.secrets.env" "${HOME}/.secrets.env"; do
     if [ -f "$sec" ]; then
         # shellcheck disable=SC1090
         source "$sec"
@@ -72,14 +72,16 @@ if [ "$HAS_SSH_KEY" = true ]; then
     CLONE_URL="$SSH_REPO_URL"
     log_info "SSH Key detected. Using SSH clone: $CLONE_URL"
 elif [ -n "$GH_AUTH_TOKEN" ]; then
+    # Configure global git rewrite so all subsequent submodule/clone calls succeed silently
+    git config --global url."https://${GH_AUTH_TOKEN}@github.com/".insteadOf "https://github.com/" || true
     CLONE_URL="https://${GH_AUTH_TOKEN}@github.com/${REPO#https://github.com/}"
-    log_info "GitHub Token detected. Using authenticated HTTPS clone."
+    log_info "GitHub Token configured. Using automated authenticated clone."
 else
     CLONE_URL="$REPO"
 fi
 
 # 1. Sync git source safely (check .git directory & remote origin)
-log_step "[1/6] Syncing source code from $CLONE_URL (branch: $BRANCH)..."
+log_step "[1/6] Syncing source code (branch: $BRANCH)..."
 if [ -d "$ROOT_PATH/.git" ]; then
     cd "$ROOT_PATH"
     git remote set-url origin "$CLONE_URL" 2>/dev/null || true
