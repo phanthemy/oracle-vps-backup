@@ -72,7 +72,6 @@ if [ "$HAS_SSH_KEY" = true ]; then
     CLONE_URL="$SSH_REPO_URL"
     log_info "SSH Key detected. Using SSH clone: $CLONE_URL"
 elif [ -n "$GH_AUTH_TOKEN" ]; then
-    # Configure global git rewrite so all subsequent submodule/clone calls succeed silently
     git config --global url."https://${GH_AUTH_TOKEN}@github.com/".insteadOf "https://github.com/" || true
     CLONE_URL="https://${GH_AUTH_TOKEN}@github.com/${REPO#https://github.com/}"
     log_info "GitHub Token configured. Using automated authenticated clone."
@@ -100,7 +99,7 @@ fi
 
 chown -R "${APP_USER}:${APP_USER}" "$ROOT_PATH"
 
-# 2. Setup Database if defined
+# 2. Setup Database & Environment Variables
 if [ -n "$DB_NAME" ]; then
     log_step "[2/6] Ensuring PostgreSQL Database '$DB_NAME' exists..."
     sudo -u postgres psql -c "
@@ -117,12 +116,32 @@ if [ -n "$DB_NAME" ]; then
     sudo -u postgres psql -d "$DB_NAME" -c "CREATE EXTENSION IF NOT EXISTS postgis;" || true
     sudo -u postgres psql -d "$DB_NAME" -c "CREATE EXTENSION IF NOT EXISTS unaccent;" || true
     sudo -u postgres psql -d "$DB_NAME" -c "CREATE EXTENSION IF NOT EXISTS pg_trgm;" || true
+
+    # Ensure default .env exists with DATABASE_URL
+    if [ ! -f "${ROOT_PATH}/.env" ]; then
+        log_info "Creating production .env with DATABASE_URL for $PROJECT_NAME..."
+        cat << EOF > "${ROOT_PATH}/.env"
+DATABASE_URL="postgresql://erp:erp_dev_2026@localhost:5432/${DB_NAME}"
+NODE_ENV="production"
+PORT=${PORT}
+EOF
+        chown "${APP_USER}:${APP_USER}" "${ROOT_PATH}/.env"
+    fi
 fi
 
 # 3. Install dependencies
 log_step "[3/6] Installing dependencies in $CWD_PATH..."
 cd "$CWD_PATH"
 run_as_app_user "cd '$CWD_PATH' && $INSTALL_CMD"
+
+# 3.1 Database schema synchronization (Prisma ORM support)
+if [ -f "${CWD_PATH}/prisma/schema.prisma" ] || [ -f "${ROOT_PATH}/prisma/schema.prisma" ]; then
+    log_info "Prisma ORM schema detected. Synchronizing database tables..."
+    run_as_app_user "cd '$CWD_PATH' && npx prisma db push --accept-data-loss" || true
+    run_as_app_user "cd '$CWD_PATH' && npx prisma generate" || true
+    # Run seed data if available
+    run_as_app_user "cd '$CWD_PATH' && npx prisma db seed" 2>/dev/null || true
+fi
 
 # 4. Build application
 log_step "[4/6] Building application ($BUILD_CMD)..."
