@@ -117,16 +117,21 @@ if [ -n "$DB_NAME" ]; then
     sudo -u postgres psql -d "$DB_NAME" -c "CREATE EXTENSION IF NOT EXISTS unaccent;" || true
     sudo -u postgres psql -d "$DB_NAME" -c "CREATE EXTENSION IF NOT EXISTS pg_trgm;" || true
 
-    # Ensure default .env exists with DATABASE_URL
-    if [ ! -f "${ROOT_PATH}/.env" ]; then
-        log_info "Creating production .env with DATABASE_URL for $PROJECT_NAME..."
-        cat << EOF > "${ROOT_PATH}/.env"
+    # Ensure default .env exists with DATABASE_URL in ROOT_PATH and CWD_PATH
+    for env_target in "${ROOT_PATH}/.env" "${CWD_PATH}/.env"; do
+        if [ ! -f "$env_target" ]; then
+            log_info "Creating production environment file ($env_target)..."
+            cat << EOF > "$env_target"
 DATABASE_URL="postgresql://erp:erp_dev_2026@localhost:5432/${DB_NAME}"
+SPATIAL_DATABASE_URL="postgresql://erp:erp_dev_2026@localhost:5432/${DB_NAME}"
+JWT_SECRET="${PROJECT_NAME}-secret-key-2026"
+NEXT_PUBLIC_APP_URL="http://localhost:${PORT}"
 NODE_ENV="production"
 PORT=${PORT}
 EOF
-        chown "${APP_USER}:${APP_USER}" "${ROOT_PATH}/.env"
-    fi
+            chown "${APP_USER}:${APP_USER}" "$env_target"
+        fi
+    done
 fi
 
 # 3. Install dependencies
@@ -134,14 +139,21 @@ log_step "[3/6] Installing dependencies in $CWD_PATH..."
 cd "$CWD_PATH"
 run_as_app_user "cd '$CWD_PATH' && $INSTALL_CMD"
 
-# 3.1 Database schema synchronization (Prisma ORM support)
+# 3.1 Database schema synchronization (Prisma ORM & PostgreSQL Init)
 if [ -f "${CWD_PATH}/prisma/schema.prisma" ] || [ -f "${ROOT_PATH}/prisma/schema.prisma" ]; then
     log_info "Prisma ORM schema detected. Synchronizing database tables..."
     run_as_app_user "cd '$CWD_PATH' && npx prisma db push --accept-data-loss" || true
     run_as_app_user "cd '$CWD_PATH' && npx prisma generate" || true
-    # Run seed data if available
     run_as_app_user "cd '$CWD_PATH' && npx prisma db seed" 2>/dev/null || true
 fi
+
+# Run quick seed scripts if present
+for seed_script in seed-quick.js seed.js prisma/seed.js; do
+    if [ -f "${CWD_PATH}/${seed_script}" ]; then
+        log_info "Running seed script: ${seed_script}..."
+        run_as_app_user "cd '$CWD_PATH' && node '${seed_script}'" 2>/dev/null || true
+    fi
+done
 
 # 4. Build application
 log_step "[4/6] Building application ($BUILD_CMD)..."

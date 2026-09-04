@@ -19,16 +19,8 @@ if [ -f "${SCRIPT_DIR}/../secrets.env" ]; then
 fi
 
 DB_USER="${POSTGRES_USER:-erp}"
-DB_PASS="${POSTGRES_PASSWORD:-}"
+DB_PASS="${POSTGRES_PASSWORD:-erp_dev_2026}"
 
-if [ -z "$DB_PASS" ]; then
-    log_warn "POSTGRES_PASSWORD not set in environment or secrets.env."
-    log_info "Generating a secure 32-character random password..."
-    DB_PASS=$(openssl rand -hex 16)
-    echo "POSTGRES_PASSWORD=${DB_PASS}" >> "${SCRIPT_DIR}/../secrets.env.generated"
-    chmod 600 "${SCRIPT_DIR}/../secrets.env.generated"
-    log_success "Password saved securely to secrets.env.generated (KEEP SAFE!)"
-fi
 
 log_step "[1/3] Checking PostgreSQL & PostGIS installation..."
 if ! command -v psql >/dev/null 2>&1; then
