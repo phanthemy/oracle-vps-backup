@@ -12,11 +12,13 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=/dev/null
 source "${SCRIPT_DIR}/lib/common.sh"
 
-# Load secrets if present (for GITHUB_TOKEN, etc.)
-if [ -f "${SCRIPT_DIR}/secrets.env" ]; then
-    # shellcheck disable=SC1091
-    source "${SCRIPT_DIR}/secrets.env"
-fi
+# Load secrets from all standard locations if present
+for sec in "${SCRIPT_DIR}/secrets.env" "${SCRIPT_DIR}/../secrets.env" /etc/secrets.env "${APP_HOME}/.secrets.env"; do
+    if [ -f "$sec" ]; then
+        # shellcheck disable=SC1090
+        source "$sec"
+    fi
+done
 
 PROJECT_NAME="${1:-}"
 
@@ -52,9 +54,6 @@ DB_NAME=$(jq -r '.database.name // ""' "$REGISTRY_FILE")
 # Enable passwordless SSH clone if SSH key is available
 export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no"
 
-# Resolve Clone URL (Priority: SSH git@github.com if key available, or GITHUB_TOKEN, or original HTTPS)
-CLONE_URL="$REPO"
-
 # Convert HTTPS to SSH URL format
 SSH_REPO_URL=$(echo "$REPO" | sed -E 's|^https://github.com/|git@github.com:|')
 
@@ -67,29 +66,30 @@ for key in /root/.ssh/id_rsa /root/.ssh/id_ed25519 "${APP_HOME}/.ssh/id_rsa" "${
     fi
 done
 
+GH_AUTH_TOKEN="${GITHUB_TOKEN:-${GH_TOKEN:-}}"
+
 if [ "$HAS_SSH_KEY" = true ]; then
     CLONE_URL="$SSH_REPO_URL"
     log_info "SSH Key detected. Using SSH clone: $CLONE_URL"
-elif [ -n "${GITHUB_TOKEN:-}" ]; then
-    CLONE_URL="https://${GITHUB_TOKEN}@github.com/${REPO#https://github.com/}"
+elif [ -n "$GH_AUTH_TOKEN" ]; then
+    CLONE_URL="https://${GH_AUTH_TOKEN}@github.com/${REPO#https://github.com/}"
     log_info "GitHub Token detected. Using authenticated HTTPS clone."
+else
+    CLONE_URL="$REPO"
 fi
 
 # 1. Sync git source safely (check .git directory & remote origin)
 log_step "[1/6] Syncing source code from $CLONE_URL (branch: $BRANCH)..."
 if [ -d "$ROOT_PATH/.git" ]; then
     cd "$ROOT_PATH"
+    git remote set-url origin "$CLONE_URL" 2>/dev/null || true
     git fetch origin
     git checkout "$BRANCH"
     git pull origin "$BRANCH"
 else
     mkdir -p "$(dirname "$ROOT_PATH")"
     if ! git clone -b "$BRANCH" "$CLONE_URL" "$ROOT_PATH"; then
-        # Fallback: if SSH failed, try HTTPS or vice-versa
-        if [ "$CLONE_URL" = "$SSH_REPO_URL" ]; then
-            log_warn "SSH clone failed, attempting HTTPS fallback..."
-            git clone -b "$BRANCH" "$REPO" "$ROOT_PATH"
-        else
+        if [ "$CLONE_URL" != "$SSH_REPO_URL" ]; then
             log_warn "HTTPS clone failed, attempting SSH fallback ($SSH_REPO_URL)..."
             git clone -b "$BRANCH" "$SSH_REPO_URL" "$ROOT_PATH"
         fi
