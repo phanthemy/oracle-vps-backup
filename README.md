@@ -2,7 +2,7 @@
 
 Repository quản lý toàn bộ hạ tầng máy chủ VPS (Ubuntu 22.04 / 24.04 LTS ARM64 & x86_64), cho phép dựng lại toàn bộ máy chủ từ con số 0 trong vòng 15-30 phút mà không cần snapshot hay image.
 
-Được thiết kế theo chuẩn **Portable & Zero Hardcoding**: Tự động nhận diện user ứng dụng, thư mục HOME và môi trường chạy trên mọi nền tảng điện toán đám mây lẫn máy chủ ảo hóa nội bộ.
+Được thiết kế theo chuẩn **Portable & Zero Hardcoding**: Tự động nhận diện user ứng dụng, tự động xác thực GitHub clone, và thiết lập môi trường chạy trên mọi nền tảng điện toán đám mây lẫn máy chủ ảo hóa nội bộ.
 
 ---
 
@@ -36,25 +36,21 @@ cd /tmp/oracle-vps-backup
 
 # 2. Khởi chạy bộ cài đặt tự động (chạy với sudo/root)
 sudo bash bootstrap.sh
-
-# Hoặc chỉ định rõ user ứng dụng mong muốn:
-# APP_USER=test sudo bash bootstrap.sh
 ```
 
 ---
 
-## 📦 2. Khôi Phục Từng Dự Án (Project Restoration)
+## 📦 2. Khôi Phục Toàn Bộ Ứng Dụng (1-Click Restore)
 
-Sau khi bootstrap hoàn tất:
+Sau khi bootstrap hoàn tất, chỉ cần **1 lệnh duy nhất** để khôi phục toàn bộ dự án:
 
 ```bash
-# Khôi phục MapGo Platform
+# Khôi phục toàn bộ tất cả dự án trong registry (MapGo, Chấm công, HRM...) và chạy Doctor Audit:
+bash restore-all.sh
+
+# Hoặc khôi phục từng dự án riêng biệt:
 bash restore.sh parking-hcm
-
-# Khôi phục Chấm công CTV
 bash restore.sh chamcong
-
-# Khôi phục HRM Unified
 bash restore.sh hrm-unified
 ```
 
