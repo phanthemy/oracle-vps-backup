@@ -134,18 +134,24 @@ EOF
     done
 fi
 
-# 3. Install dependencies
+# 3. Install dependencies (Root + CWD)
+if [ "$ROOT_PATH" != "$CWD_PATH" ] && [ -f "${ROOT_PATH}/package.json" ]; then
+    log_step "[3/6] Installing Monorepo root dependencies in $ROOT_PATH..."
+    run_as_app_user "cd '$ROOT_PATH' && npm install --production=false" || true
+fi
+
 log_step "[3/6] Installing dependencies in $CWD_PATH..."
 cd "$CWD_PATH"
 run_as_app_user "cd '$CWD_PATH' && $INSTALL_CMD"
 
 # 3.1 Database schema synchronization (Prisma ORM & PostgreSQL Init)
-if [ -f "${CWD_PATH}/prisma/schema.prisma" ] || [ -f "${ROOT_PATH}/prisma/schema.prisma" ]; then
-    log_info "Prisma ORM schema detected. Synchronizing database tables..."
-    run_as_app_user "cd '$CWD_PATH' && npx prisma db push --accept-data-loss" || true
-    run_as_app_user "cd '$CWD_PATH' && npx prisma generate" || true
-    run_as_app_user "cd '$CWD_PATH' && npx prisma db seed" 2>/dev/null || true
-fi
+find "$ROOT_PATH" -name "schema.prisma" 2>/dev/null | while read -r p_schema; do
+    p_dir="$(dirname "$(dirname "$p_schema")")"
+    log_info "Synchronizing Prisma schema in $p_dir..."
+    run_as_app_user "cd '$p_dir' && npx prisma db push --accept-data-loss" 2>/dev/null || true
+    run_as_app_user "cd '$p_dir' && npx prisma generate" 2>/dev/null || true
+    run_as_app_user "cd '$p_dir' && npx prisma db seed" 2>/dev/null || true
+done
 
 # Run quick seed scripts if present
 for seed_script in seed-quick.js seed.js prisma/seed.js; do
@@ -155,9 +161,24 @@ for seed_script in seed-quick.js seed.js prisma/seed.js; do
     fi
 done
 
-# 4. Build application
-log_step "[4/6] Building application ($BUILD_CMD)..."
-run_as_app_user "cd '$CWD_PATH' && $BUILD_CMD"
+# 4. Build application (check if build script exists)
+if [ "$BUILD_CMD" != "none" ] && [ -n "$BUILD_CMD" ]; then
+    HAS_BUILD_SCRIPT=true
+    if [ "$BUILD_CMD" = "npm run build" ]; then
+        if [ -f "${CWD_PATH}/package.json" ] && ! jq -e '.scripts.build' "${CWD_PATH}/package.json" >/dev/null 2>&1; then
+            HAS_BUILD_SCRIPT=false
+        fi
+    fi
+
+    if [ "$HAS_BUILD_SCRIPT" = true ]; then
+        log_step "[4/6] Building application ($BUILD_CMD)..."
+        run_as_app_user "cd '$CWD_PATH' && DATABASE_URL='postgresql://erp:erp_dev_2026@localhost:5432/${DB_NAME}' SPATIAL_DATABASE_URL='postgresql://erp:erp_dev_2026@localhost:5432/${DB_NAME}' NODE_ENV=production $BUILD_CMD" || {
+            log_warn "Build returned exit code, continuing to start..."
+        }
+    else
+        log_info "No build script in package.json, skipping build step..."
+    fi
+fi
 
 # 5. Start / Restart PM2 (Idempotent check via pm2 describe)
 log_step "[5/6] Managing PM2 process '$PM2_NAME' on port $PORT..."

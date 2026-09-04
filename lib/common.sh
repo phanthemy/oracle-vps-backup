@@ -55,8 +55,13 @@ APP_USER="${APP_USER:-$DETECTED_USER}"
 APP_HOME="${APP_HOME:-$(get_app_home "$APP_USER")}"
 export APP_USER APP_HOME
 
-# Auto-configure git silent authentication for seamless cloning across root & app user
+# Auto-configure git silent authentication and safe directories across root & app user
 setup_git_auth() {
+    git config --global --add safe.directory '*' 2>/dev/null || true
+    if [ "$(id -u 2>/dev/null || echo 1)" -eq 0 ] && [ "$APP_USER" != "root" ]; then
+        su - "$APP_USER" -c "git config --global --add safe.directory '*'" 2>/dev/null || true
+    fi
+
     local auth_token="${GITHUB_TOKEN:-${GH_TOKEN:-}}"
     if [ -n "$auth_token" ]; then
         git config --global url."https://${auth_token}@github.com/".insteadOf "https://github.com/" 2>/dev/null || true
