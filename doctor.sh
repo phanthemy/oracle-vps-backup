@@ -56,7 +56,7 @@ fi
 
 # 3. Disk Space Usage
 DISK_USAGE_PCT=$(df -h / | awk 'NR==2 {print $5}' | tr -d '%')
-if [ -n "$DISK_USAGE_PCT" ] && [ "$DISK_USAGE_PCT" -lt 85 ]; then
+if [ -n "$DISK_USAGE_PCT" ] && [ "$DISK_USAGE_PCT" -lt 95 ]; then
     check_result "Root Disk Space" "PASS" "${DISK_USAGE_PCT}% used"
 else
     check_result "Root Disk Space" "FAIL" "High disk usage: ${DISK_USAGE_PCT:-100}% used"

@@ -17,15 +17,9 @@ fi
 echo "==> Restoring database: $DB_NAME from $FILE_PATH..."
 
 # Create database if not exists
-sudo -u postgres psql -c "
-DO \$\$
-BEGIN
-  IF NOT EXISTS (SELECT FROM pg_database WHERE datname = '${DB_NAME}') THEN
-    CREATE DATABASE \"${DB_NAME}\" OWNER erp;
-  END IF;
-END
-\$\$;
-"
+if ! sudo -u postgres psql -tAc "SELECT 1 FROM pg_database WHERE datname = '${DB_NAME}'" 2>/dev/null | grep -q 1; then
+    sudo -u postgres psql -c "CREATE DATABASE \"${DB_NAME}\" OWNER erp;"
+fi
 
 # Enable essential extensions
 sudo -u postgres psql -d "$DB_NAME" -c "CREATE EXTENSION IF NOT EXISTS postgis;" || true

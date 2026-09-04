@@ -102,20 +102,37 @@ chown -R "${APP_USER}:${APP_USER}" "$ROOT_PATH"
 # 2. Setup Database & Environment Variables
 if [ -n "$DB_NAME" ]; then
     log_step "[2/6] Ensuring PostgreSQL Database '$DB_NAME' exists..."
-    sudo -u postgres psql -c "
-    DO \$\$
-    BEGIN
-      IF NOT EXISTS (SELECT FROM pg_database WHERE datname = '${DB_NAME}') THEN
-        CREATE DATABASE \"${DB_NAME}\" OWNER erp;
-      END IF;
-    END
-    \$\$;
-    " || true
+    if ! sudo -u postgres psql -tAc "SELECT 1 FROM pg_database WHERE datname = '${DB_NAME}'" 2>/dev/null | grep -q 1; then
+        log_info "Creating PostgreSQL database '${DB_NAME}' owned by erp..."
+        sudo -u postgres psql -c "CREATE DATABASE \"${DB_NAME}\" OWNER erp;"
+    fi
 
     # Enable extensions
     sudo -u postgres psql -d "$DB_NAME" -c "CREATE EXTENSION IF NOT EXISTS postgis;" || true
     sudo -u postgres psql -d "$DB_NAME" -c "CREATE EXTENSION IF NOT EXISTS unaccent;" || true
     sudo -u postgres psql -d "$DB_NAME" -c "CREATE EXTENSION IF NOT EXISTS pg_trgm;" || true
+
+    # For spatial DB (MapGo), ensure places and user_reports base tables exist
+    if [ "$DB_NAME" = "mapgo_spatial" ]; then
+        log_info "Initializing MapGo spatial base tables in $DB_NAME..."
+        sudo -u postgres psql -d "$DB_NAME" << 'EOSQL' || true
+CREATE TABLE IF NOT EXISTS places (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    address TEXT,
+    category VARCHAR(100),
+    geom geometry(Point, 4326),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS user_reports (
+    id SERIAL PRIMARY KEY,
+    place_id INTEGER,
+    report_type VARCHAR(100),
+    status VARCHAR(50) DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+EOSQL
+    fi
 
     # Ensure default .env exists with DATABASE_URL in ROOT_PATH and CWD_PATH
     for env_target in "${ROOT_PATH}/.env" "${CWD_PATH}/.env"; do
