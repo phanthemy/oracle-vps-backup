@@ -36,8 +36,16 @@ if ! command -v psql >/dev/null 2>&1; then
     apt-get install -y postgresql postgresql-contrib postgis
 fi
 
+# Optimize PostgreSQL max_connections for multi-app VPS workloads
+for conf in /etc/postgresql/*/main/postgresql.conf; do
+    if [ -f "$conf" ]; then
+        log_info "Tuning max_connections=300 in $conf..."
+        sed -i "s/^[# ]*max_connections = .*/max_connections = 300/" "$conf"
+    fi
+done
+
 systemctl enable postgresql
-systemctl start postgresql
+systemctl restart postgresql
 
 log_step "[2/3] Configuring database role '${DB_USER}'..."
 
