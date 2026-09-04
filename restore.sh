@@ -12,6 +12,12 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=/dev/null
 source "${SCRIPT_DIR}/lib/common.sh"
 
+# Load secrets if present (for GITHUB_TOKEN, etc.)
+if [ -f "${SCRIPT_DIR}/secrets.env" ]; then
+    # shellcheck disable=SC1091
+    source "${SCRIPT_DIR}/secrets.env"
+fi
+
 PROJECT_NAME="${1:-}"
 
 if [ -z "$PROJECT_NAME" ]; then
@@ -43,25 +49,51 @@ INSTALL_CMD=$(jq -r '.build.installCmd // "npm install --production=false"' "$RE
 HEALTH_URL=$(jq -r '.healthCheck.url // "http://localhost:'"$PORT"'"' "$REGISTRY_FILE")
 DB_NAME=$(jq -r '.database.name // ""' "$REGISTRY_FILE")
 
+# Enable passwordless SSH clone if SSH key is available
+export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no"
+
+# Resolve Clone URL (Priority: SSH git@github.com if key available, or GITHUB_TOKEN, or original HTTPS)
+CLONE_URL="$REPO"
+
+# Convert HTTPS to SSH URL format
+SSH_REPO_URL=$(echo "$REPO" | sed -E 's|^https://github.com/|git@github.com:|')
+
+# Check if SSH key exists in common locations (root, current user or app user)
+HAS_SSH_KEY=false
+for key in /root/.ssh/id_rsa /root/.ssh/id_ed25519 "${APP_HOME}/.ssh/id_rsa" "${APP_HOME}/.ssh/id_ed25519" "${HOME}/.ssh/id_rsa" "${HOME}/.ssh/id_ed25519"; do
+    if [ -f "$key" ]; then
+        HAS_SSH_KEY=true
+        break
+    fi
+done
+
+if [ "$HAS_SSH_KEY" = true ]; then
+    CLONE_URL="$SSH_REPO_URL"
+    log_info "SSH Key detected. Using SSH clone: $CLONE_URL"
+elif [ -n "${GITHUB_TOKEN:-}" ]; then
+    CLONE_URL="https://${GITHUB_TOKEN}@github.com/${REPO#https://github.com/}"
+    log_info "GitHub Token detected. Using authenticated HTTPS clone."
+fi
+
 # 1. Sync git source safely (check .git directory & remote origin)
-log_step "[1/6] Syncing source code from $REPO (branch: $BRANCH)..."
+log_step "[1/6] Syncing source code from $CLONE_URL (branch: $BRANCH)..."
 if [ -d "$ROOT_PATH/.git" ]; then
     cd "$ROOT_PATH"
-    CURRENT_ORIGIN=$(git config --get remote.origin.url || echo "")
-    if [ "$CURRENT_ORIGIN" = "$REPO" ]; then
-        log_info "Repository origin matches. Fetching and checking out $BRANCH..."
-        git fetch origin
-        git checkout "$BRANCH"
-        git pull origin "$BRANCH"
-    else
-        log_warn "Directory exists but origin mismatch ($CURRENT_ORIGIN != $REPO). Re-cloning..."
-        BACKUP_OLD="${ROOT_PATH}_backup_$(date +%Y%m%d_%H%M%S)"
-        mv "$ROOT_PATH" "$BACKUP_OLD"
-        git clone -b "$BRANCH" "$REPO" "$ROOT_PATH"
-    fi
+    git fetch origin
+    git checkout "$BRANCH"
+    git pull origin "$BRANCH"
 else
     mkdir -p "$(dirname "$ROOT_PATH")"
-    git clone -b "$BRANCH" "$REPO" "$ROOT_PATH"
+    if ! git clone -b "$BRANCH" "$CLONE_URL" "$ROOT_PATH"; then
+        # Fallback: if SSH failed, try HTTPS or vice-versa
+        if [ "$CLONE_URL" = "$SSH_REPO_URL" ]; then
+            log_warn "SSH clone failed, attempting HTTPS fallback..."
+            git clone -b "$BRANCH" "$REPO" "$ROOT_PATH"
+        else
+            log_warn "HTTPS clone failed, attempting SSH fallback ($SSH_REPO_URL)..."
+            git clone -b "$BRANCH" "$SSH_REPO_URL" "$ROOT_PATH"
+        fi
+    fi
 fi
 
 chown -R "${APP_USER}:${APP_USER}" "$ROOT_PATH"
