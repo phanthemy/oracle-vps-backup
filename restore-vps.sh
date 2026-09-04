@@ -29,6 +29,18 @@ for key in /root/.ssh/id_rsa /root/.ssh/id_ed25519; do
     fi
 done
 
+# Try to auto-extract token from git remote URL if present
+if [ -z "${GITHUB_TOKEN:-${GH_TOKEN:-}}" ]; then
+    REMOTE_URL=$(git config --get remote.origin.url 2>/dev/null || echo "")
+    if [[ "$REMOTE_URL" =~ https://([^@:]+)(:[^@]*)?@github\.com ]]; then
+        EXTRACTED_TOKEN="${BASH_REMATCH[1]}"
+        if [ "$EXTRACTED_TOKEN" != "git" ] && [ "$EXTRACTED_TOKEN" != "http" ]; then
+            export GITHUB_TOKEN="$EXTRACTED_TOKEN"
+            export GH_TOKEN="$EXTRACTED_TOKEN"
+        fi
+    fi
+fi
+
 if [ "$HAS_SSH_KEY" = false ] && [ -z "${GITHUB_TOKEN:-${GH_TOKEN:-}}" ]; then
     echo -e "\033[1;33m🔐 [BẢO MẬT] Hệ thống yêu cầu Token / Mật khẩu để tải mã nguồn các dự án.\033[0m"
     read -r -s -p "👉 Nhập GitHub Token (hoặc Master Key): " INPUT_SECRET
