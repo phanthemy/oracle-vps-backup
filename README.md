@@ -8,17 +8,19 @@ Repository quản lý toàn bộ hạ tầng máy chủ VPS (Ubuntu 22.04 / 24.0
 
 ## ⚡ LỆNH KHÔI PHỤC VPS MỚI (COPY & CHẠY DƯỚI QUYỀN ROOT)
 
-Mở SSH VPS mới (quyền `root`), copy đúng 3 dòng này dán vào là xong:
+Mở SSH VPS mới (quyền `root`), thay `<TOKEN>` bằng GitHub Token của bạn và copy 3 dòng này dán vào:
 
 ```bash
-git clone https://github.com/phanthemy/oracle-vps-backup.git /tmp/oracle-vps-backup
+git clone https://<TOKEN>@github.com/phanthemy/oracle-vps-backup.git /tmp/oracle-vps-backup
 cd /tmp/oracle-vps-backup
 bash restore-vps.sh
 ```
 
-*(Hoặc chạy nhanh qua curl 1 dòng):*
+*(Nếu VPS đã gắn sẵn SSH Key của GitHub):*
 ```bash
-curl -sSL https://raw.githubusercontent.com/phanthemy/oracle-vps-backup/main/restore-vps.sh | bash
+git clone git@github.com:phanthemy/oracle-vps-backup.git /tmp/oracle-vps-backup
+cd /tmp/oracle-vps-backup
+bash restore-vps.sh
 ```
 
 > **Toàn bộ tiến trình tự động thực hiện từ A - Z:**
