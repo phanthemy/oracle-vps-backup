@@ -5,23 +5,20 @@
 - Branch: main
 
 ## Last Completed
-- Phase 1A Emergency Security Patch on WasyPro (wasypro.com & app.wasypro.com) deployed to production VPS (149.118.62.155), fully verified with live smoke tests, zero token leakage, HttpOnly cookies, CSRF protection, and Prisma migrations.
-- Bootstrapped and synchronized full workspace environment (bootstrap-machine.ps1, doctor.ps1: PASS, sync-all.ps1: CLEAN)
-- Restored Mapgo.vn repository to local workspace via git clone (verified via doctor.ps1: PASS)
-- Support required/optional/internal repo types in scripts (commit 3974b63)
-- Added Multi-Machine Bootstrap Toolkit under scripts/ (commit 4840cc6)
-- Added "User Prompt Contract" section to AGENTS.md (commit 45ce16c)
-- Fixed trackingBranch to "main" in .antigravity/project.json (commit c0371d7)
-- Added GET /health endpoint as health.sh returning {"status":"ok","time":"ISO8601"} (commit 202ef9c)
-- Created .antigravity/STATE.md as single source of project state (commit 0d02c18)
-- Created AGENTS.md with startup, working rules and finish protocol (commit b18e334)
+- Refactored entire repository to standard Portable & Zero Hardcoding architecture (supports Oracle Cloud, VMware, Hetzner, DigitalOcean, custom user accounts).
+- Implemented `lib/user.sh` (dynamic app user detection) & `lib/common.sh` (git safe directory across users, logging, non-root PM2 isolation).
+- Created `restore-vps.sh` (1-Click Zero-to-Production master script automating bootstrap, projects restore, and doctor health check).
+- Fully verified all 21 scripts with automated syntax tests.
+- Fixed PostgreSQL database creation syntax and initialized PostGIS spatial tables for MapGo (`places`, `user_reports`).
+- Registered projects in `projects/`: `parking-hcm` (Port 3003), `chamcong` (Port 3015), `hrm-unified` (Port 3000).
 
 ## Current Status
-- Giai đoạn 1A đã hoàn tất và triển khai thành công lên máy chủ production VPS.
-- Hệ thống sẵn sàng cho Giai đoạn 1B ở phiên làm việc tiếp theo.
+- Framework 1-Click Disaster Recovery đạt chuẩn Production, đã kiểm thử trên VPS test (User `test` & User `ubuntu`).
+- Sẵn sàng mở rộng thêm dự án mới bằng cách thêm file cấu hình vào thư mục `projects/<project-name>.json`.
 
 ## Next Tasks
-- Giai đoạn 1B: Rà soát và nâng cấp tính năng nghiệp vụ theo kế hoạch dự án.
+- Bổ sung thêm registry dự án mới vào `projects/` khi triển khai thêm app lên VPS.
+- Duy trì backup định kỳ (`sudo bash backup.sh`) mỗi khi thay đổi cấu hình PM2 / Caddy trên VPS production.
 
 ## Open Issues
 - (none)
