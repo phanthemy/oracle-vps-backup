@@ -1,29 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
   const countEl = document.getElementById('productCount');
   const btnSync = document.getElementById('btnSync');
-  const btnClear = document.getElementById('btnClear');
   const btnReloadTab = document.getElementById('btnReloadTab');
+  const btnCopyJson = document.getElementById('btnCopyJson');
   const cleanFirstCheck = document.getElementById('cleanFirst');
-  const logBox = document.getElementById('logBox');
+  const debugBox = document.getElementById('debugBox');
 
   function updateCount() {
-    chrome.storage.local.get(['tiktok_products_count'], (res) => {
+    chrome.storage.local.get(['tiktok_products_count', 'tiktok_products_map'], (res) => {
       const count = res.tiktok_products_count || 0;
       countEl.textContent = `${count} sản phẩm`;
       if (count > 0) {
         btnSync.textContent = `⚡ Đồng bộ ${count} SP về DauTayShop`;
+        if (res.tiktok_products_map) {
+          try {
+            const map = new Map(JSON.parse(res.tiktok_products_map));
+            const first = Array.from(map.values())[0];
+            if (first) {
+              debugBox.style.display = 'block';
+              debugBox.textContent = `Trường SP: ` + Object.keys(first).join(', ');
+            }
+          } catch (e) {}
+        }
       } else {
         btnSync.textContent = `⚡ Đồng bộ về DauTayShop`;
       }
     });
   }
   updateCount();
-
-  function log(msg) {
-    logBox.style.display = 'block';
-    logBox.innerHTML += `<div>${msg}</div>`;
-    logBox.scrollTop = logBox.scrollHeight;
-  }
 
   btnReloadTab.addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -34,10 +38,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  btnCopyJson.addEventListener('click', () => {
+    chrome.storage.local.get(['tiktok_products_map'], (res) => {
+      if (!res.tiktok_products_map) {
+        alert('Chưa có sản phẩm nào!');
+        return;
+      }
+      try {
+        const map = new Map(JSON.parse(res.tiktok_products_map));
+        const first = Array.from(map.values())[0];
+        if (first) {
+          navigator.clipboard.writeText(JSON.stringify(first, null, 2)).then(() => {
+            alert('Đã copy JSON của 1 sản phẩm vào bộ nhớ tạm! Bạn chỉ việc Ctrl+V dán vào khung chat.');
+          });
+        }
+      } catch (e) {
+        alert(e.message);
+      }
+    });
+  });
+
   btnSync.addEventListener('click', async () => {
     btnSync.disabled = true;
     btnSync.textContent = '⏳ Đang đồng bộ...';
-    log('Đang chuẩn bị danh sách sản phẩm...');
 
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       const activeTab = tabs[0];
@@ -49,67 +72,39 @@ document.addEventListener('DOMContentLoaded', () => {
           btnSync.disabled = false;
           updateCount();
           if (chrome.runtime.lastError) {
-            log(`Chưa bắt được dữ liệu. Vui lòng bấm nút 'Tải lại trang TikTok (F5)'!`);
+            alert('Vui lòng bấm Tải lại trang TikTok (F5) rồi thử lại!');
           } else if (resp && resp.success) {
-            log(`✅ Hoàn thành: ${resp.synced_count} sản phẩm.`);
+            alert(`🎉 Hoàn thành! Đã đồng bộ ${resp.synced_count} sản phẩm sang DauTayShop.`);
           }
         });
         return;
       }
 
-      // Fallback: send directly from storage
+      // Fallback
       chrome.storage.local.get(['tiktok_products_map'], async (res) => {
         if (!res.tiktok_products_map) {
-          alert('Chưa có sản phẩm nào được quét. Vui lòng bấm nút "Tải lại trang TikTok (F5)"!');
+          alert('Chưa có sản phẩm nào!');
           btnSync.disabled = false;
-          updateCount();
           return;
         }
 
         const map = new Map(JSON.parse(res.tiktok_products_map));
         const prods = Array.from(map.values());
-        if (prods.length === 0) {
-          alert('Danh sách sản phẩm trống. Vui lòng F5 lại trang TikTok!');
-          btnSync.disabled = false;
-          updateCount();
-          return;
-        }
-
         try {
-          const BATCH_SIZE = 25;
-          let total = 0;
-
-          for (let i = 0; i < prods.length; i += BATCH_SIZE) {
-            const chunk = prods.slice(i, i + BATCH_SIZE);
-            const isFirst = (i === 0);
-
-            log(`Đang gửi đợt ${i + 1}-${Math.min(i + BATCH_SIZE, prods.length)}/${prods.length} sản phẩm...`);
-
-            const resp = await fetch('https://dautayshop.nextapp.vn/api/admin/tiktok/sync-from-extension', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'x-sync-secret': 'dautayshop_sync_secret_2026'
-              },
-              body: JSON.stringify({
-                clean_first: isFirst ? cleanFirstCheck.checked : false,
-                products: chunk
-              })
-            });
-
-            if (!resp.ok) {
-              const text = await resp.text();
-              throw new Error(`HTTP ${resp.status}: ${text.slice(0, 100)}`);
-            }
-
-            const json = await resp.json();
-            total += (json.synced_count || chunk.length);
-          }
-
-          log(`✅ Thành công! Đã đồng bộ ${total} sản phẩm.`);
-          alert(`🎉 Thành công! Đã đồng bộ ${total} sản phẩm.`);
+          const resp = await fetch('https://dautayshop.nextapp.vn/api/admin/tiktok/sync-from-extension', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x-sync-secret': 'dautayshop_sync_secret_2026'
+            },
+            body: JSON.stringify({
+              clean_first: cleanFirstCheck.checked,
+              products: prods
+            })
+          });
+          const json = await resp.json();
+          alert(`🎉 Hoàn thành! Đã đồng bộ ${json.synced_count} sản phẩm sang DauTayShop.`);
         } catch (err) {
-          log(`❌ Lỗi kết nối: ${err.message}`);
           alert(`Lỗi: ${err.message}`);
         } finally {
           btnSync.disabled = false;
@@ -118,13 +113,4 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
-
-  if (btnClear) {
-    btnClear.addEventListener('click', () => {
-      chrome.storage.local.remove(['tiktok_products_map', 'tiktok_products_count'], () => {
-        updateCount();
-        log('Đã xóa dữ liệu tạm.');
-      });
-    });
-  }
 });
