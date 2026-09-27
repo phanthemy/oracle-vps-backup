@@ -14,17 +14,19 @@
 - **[2026-09-27]** Removed 4 malicious exfiltration canary files (canary.js, scripts/canary-init.js, .npmrc, package.json) injected via compromised token.
 - **[2026-09-27]** Fixed DauTayStore video playback: added `toAbsUrl()` wrapper for video_url in React bundle (product detail + admin preview).
 - **[2026-09-27]** Fixed DauTayStore Zalo catalog.js: added video player to product detail modal.
+- **[2026-09-27]** Fixed admin variant "+ Thêm tùy chọn" button and variant sync (matrix ↔ blocks).
+- **[2026-09-27]** Data fix: synced colors/sizes from variants for products with empty fields.
+- **[2026-09-27]** Added TikTok Shop export: `GET /api/admin/export/tiktok` — 19 products → 288 rows Excel.
+- **[2026-09-27]** DB migration: 7 new columns (brand, parcel_weight/length/width/height, origin_country, tiktok_category_id).
 
 ## Current Status
-- Framework 1-Click Disaster Recovery đạt chuẩn Production, đã kiểm thử trên VPS test (User `test` & User `ubuntu`).
-- Sẵn sàng mở rộng thêm dự án mới bằng cách thêm file cấu hình vào thư mục `projects/<project-name>.json`.
-- DauTayStore: Video playback fixed trên cả React SPA và Zalo Mini App. Admin variant form có 2 block cố định (Màu sắc + Kích cỡ).
+- Framework 1-Click Disaster Recovery đạt chuẩn Production.
+- DauTayStore: Video/variant/sync bugs fixed. TikTok export feature deployed and tested.
 
 ## Next Tasks
-- DauTayStore: Cần tạo lại React source từ bundle để có thể maintain dài hạn (hiện chỉ có build artifacts).
-- DauTayStore: Cân nhắc thêm project registry `projects/dautayshop.json` vào repo IaC.
+- DauTayStore: Thêm nút "Export TikTok" vào admin UI (hiện gọi qua API URL).
+- DauTayStore: Cần tạo lại React source từ bundle để maintain dài hạn.
 - Bổ sung thêm registry dự án mới vào `projects/` khi triển khai thêm app lên VPS.
-- Duy trì backup định kỳ (`sudo bash backup.sh`) mỗi khi thay đổi cấu hình PM2 / Caddy trên VPS production.
 - **URGENT**: Revoke tất cả GitHub Personal Access Tokens — token bị lộ dẫn đến mã độc inject.
 
 ## Open Issues
