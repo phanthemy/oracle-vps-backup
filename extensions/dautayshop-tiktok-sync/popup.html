@@ -78,6 +78,16 @@
       font-size: 12px;
       padding: 8px;
     }
+    .tip-box {
+      background: #e7f5ff;
+      border: 1px solid #a5d8ff;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 11px;
+      color: #1971c2;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
     .log-box {
       margin-top: 12px;
       padding: 8px;
@@ -109,6 +119,10 @@
     </div>
   </div>
 
+  <div class="tip-box" id="tipBox">
+    💡 <b>Mẹo:</b> Khi vừa nạp lại tiện ích, hãy bấm <b>F5 (Tải lại trang TikTok)</b> để tiện ích bắt dữ liệu sản phẩm.
+  </div>
+
   <div class="option-group">
     <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
       <input type="checkbox" id="cleanFirst">
@@ -117,7 +131,8 @@
   </div>
 
   <button class="btn btn-primary" id="btnSync">⚡ Đồng bộ về DauTayShop</button>
-  <button class="btn btn-secondary" id="btnClear">🗑️ Xóa danh sách đã quét</button>
+  <button class="btn btn-secondary" id="btnReloadTab">🔄 Tải lại trang TikTok (F5)</button>
+  <button class="btn btn-secondary" id="btnClear" style="display: none;">🗑️ Xóa danh sách đã quét</button>
 
   <div id="logBox" class="log-box"></div>
 
