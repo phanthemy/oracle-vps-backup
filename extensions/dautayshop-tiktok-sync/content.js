@@ -13,8 +13,10 @@
   // Load previously saved products from storage
   chrome.storage.local.get(['tiktok_products_map'], (res) => {
     if (res.tiktok_products_map) {
-      capturedProducts = new Map(JSON.parse(res.tiktok_products_map));
-      updateFloatingButton();
+      try {
+        capturedProducts = new Map(JSON.parse(res.tiktok_products_map));
+        updateFloatingButton();
+      } catch (e) {}
     }
   });
 
@@ -102,7 +104,6 @@
       floatBtn.onmouseenter = () => floatBtn.style.transform = 'scale(1.05)';
       floatBtn.onmouseleave = () => floatBtn.style.transform = 'scale(1)';
       floatBtn.onclick = () => {
-        chrome.runtime.sendMessage({ action: 'OPEN_POPUP_OR_SYNC' });
         triggerSyncToDauTay(false);
       };
       document.body.appendChild(floatBtn);
@@ -136,23 +137,41 @@
     if (floatBtn) floatBtn.innerHTML = `⏳ Đang gửi ${prods.length} SP...`;
 
     try {
-      const resp = await fetch('https://dautayshop.nextapp.vn/api/admin/tiktok/sync-from-extension', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-sync-secret': 'dautayshop_sync_secret_2026'
-        },
-        body: JSON.stringify({
-          clean_first: cleanFirst,
-          products: prods
-        })
-      });
+      // Chunk into batches of 25 to ensure rock-solid transfers
+      const BATCH_SIZE = 25;
+      let totalSynced = 0;
 
-      const json = await resp.json();
-      if (floatBtn) floatBtn.innerHTML = `✅ Đã đồng bộ ${json.synced_count || prods.length} SP!`;
+      for (let i = 0; i < prods.length; i += BATCH_SIZE) {
+        const chunk = prods.slice(i, i + BATCH_SIZE);
+        const isFirstChunk = (i === 0);
+
+        if (floatBtn) floatBtn.innerHTML = `⏳ Đang gửi SP ${i + 1}-${Math.min(i + BATCH_SIZE, prods.length)}/${prods.length}...`;
+
+        const resp = await fetch('https://dautayshop.nextapp.vn/api/admin/tiktok/sync-from-extension', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-sync-secret': 'dautayshop_sync_secret_2026'
+          },
+          body: JSON.stringify({
+            clean_first: isFirstChunk ? cleanFirst : false,
+            products: chunk
+          })
+        });
+
+        if (!resp.ok) {
+          const text = await resp.text();
+          throw new Error(`HTTP ${resp.status}: ${text.slice(0, 100)}`);
+        }
+
+        const json = await resp.json();
+        totalSynced += (json.synced_count || chunk.length);
+      }
+
+      if (floatBtn) floatBtn.innerHTML = `✅ Đã đồng bộ ${totalSynced} SP!`;
       setTimeout(updateFloatingButton, 4000);
-      alert(`🎉 Thành công! Đã đồng bộ ${json.synced_count || prods.length} sản phẩm sang DauTayShop!`);
-      return json;
+      alert(`🎉 Thành công! Đã đồng bộ ${totalSynced} sản phẩm và đầy đủ biến thể sang DauTayShop!`);
+      return { success: true, synced_count: totalSynced };
     } catch (err) {
       if (floatBtn) floatBtn.innerHTML = `❌ Lỗi đồng bộ`;
       setTimeout(updateFloatingButton, 4000);
