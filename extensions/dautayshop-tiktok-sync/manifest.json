@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "DauTayShop - TikTok Shop Sync",
+  "version": "1.0.0",
+  "description": "Đồng bộ sản phẩm và mọi biến thể từ TikTok Shop Seller Center sang website DauTayShop",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://seller-vn.tiktok.com/*",
+    "https://dautayshop.nextapp.vn/*",
+    "http://localhost:4000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://seller-vn.tiktok.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["interceptor.js"],
+      "matches": ["https://seller-vn.tiktok.com/*"]
+    }
+  ]
+}

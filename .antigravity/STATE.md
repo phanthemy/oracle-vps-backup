@@ -17,11 +17,12 @@
 - **[2026-09-27]** Fixed admin variant "+ Thêm tùy chọn" button and variant sync (matrix ↔ blocks).
 - **[2026-09-27]** Data fix: synced colors/sizes from variants for products with empty fields.
 - **[2026-09-27]** Added TikTok Shop export: `GET /api/admin/export/tiktok` — 19 products → 288 rows Excel.
-- **[2026-09-27]** DB migration: 7 new columns (brand, parcel_weight/length/width/height, origin_country, tiktok_category_id).
+- **[2026-09-27]** DB migration: 7 new columns (brand, parcel_weight/length/width/height, origin_country, tiktok_category_id, tiktok_product_id).
+- **[2026-09-27]** Added TikTok Shop Sync Engine & Chrome Extension: `POST /api/admin/tiktok/sync-from-extension` with generic variant mapping (Màu/Size/Price/Stock/Images/SKU/tiktok_sku_id) and UPSERT support. Created Chrome Extension at `extensions/dautayshop-tiktok-sync` and copied to Desktop.
 
 ## Current Status
 - Framework 1-Click Disaster Recovery đạt chuẩn Production.
-- DauTayStore: Video/variant/sync bugs fixed. TikTok export feature deployed and tested.
+- DauTayStore: TikTok Sync Engine & Chrome Extension deployed and verified.
 
 ## Next Tasks
 - DauTayStore: Thêm nút "Export TikTok" vào admin UI (hiện gọi qua API URL).
